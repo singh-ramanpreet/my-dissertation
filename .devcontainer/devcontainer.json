@@ -1,0 +1,23 @@
+{
+    "name": "latex",
+    "image": "singhramanpreet/vscode-devcontainers:latex-2020-0.1",
+    "extensions": [
+        "james-yu.latex-workshop",
+        "streetsidesoftware.code-spell-checker"
+    ],
+    "settings": {
+        "terminal.integrated.inheritEnv": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "latex-workshop.viewer.pdf.internal.port": 9000,
+        "cSpell.diagnosticLevel": "Information",
+        "cSpell.enabledLanguageIds": [
+            "latex"
+        ]
+    },
+    "forwardPorts": [
+        9000
+    ],
+    "remoteUser": "vscode",
+    "shutdownAction": "stopContainer"
+}
