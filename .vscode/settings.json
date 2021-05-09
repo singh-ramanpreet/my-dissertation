@@ -26,5 +26,16 @@
     "latex-workshop.latex.autoBuild.run": "onSave",
     "latex-workshop.latex.autoClean.run": "onBuilt",
     "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.view.pdf.zoom": "page-fit"
+    "latex-workshop.view.pdf.zoom": "page-fit",
+    "cSpell.words": [
+        "linktoc",
+        "pdfauthor",
+        "pdfencoding",
+        "pdfkeywords",
+        "pdfsubject",
+        "pdftitle",
+        "plainpages",
+        "psdextra",
+        "semileptonic"
+    ]
 }

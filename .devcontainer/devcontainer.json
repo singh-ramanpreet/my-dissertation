@@ -1,6 +1,6 @@
 {
     "name": "latex",
-    "image": "singhramanpreet/vscode-devcontainers:latex-2020-0.1",
+    "image": "singhramanpreet/vscode-devcontainers:latex-2021-0.1",
     "extensions": [
         "james-yu.latex-workshop",
         "streetsidesoftware.code-spell-checker"

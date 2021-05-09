@@ -1,0 +1,104 @@
+\documentclass[12pt]{niuthesis}
+
+% line numbers for draft
+\usepackage{lineno}
+%\linenumbers{}
+
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{rotating}
+\usepackage{longtable}
+
+\usepackage{hyperref}
+\hypersetup{
+  bookmarksnumbered,%
+  bookmarksopen,%
+  bookmarksopenlevel=1,%
+  colorlinks=false,%
+  pdfborder={0 0 0},%
+  plainpages=true,%
+  pdfencoding=auto,%
+  psdextra,%
+  linktoc=all,%
+  pdfauthor={},%
+  pdftitle={},%
+  pdfsubject={},%
+  pdfkeywords={your topics}%
+}
+
+\usepackage[
+  nopostdot,toc,acronym,
+  nomain,nonumberlist,nogroupskip
+]{glossaries}
+
+\makeatletter
+\AtBeginDocument{%
+  \let\thMakeUppercase\uppercase%
+}
+\makeatother
+
+% Load macros and definitions
+\include{macros}
+\include{definitions}
+
+% Load glossary and set style
+\makeglossaries{}
+\newglossarystyle{mylong}{
+  \setglossarystyle{long}
+  \renewenvironment{theglossary}%
+  {\begin{longtable}{lp{\glsdescwidth}}}%
+  {\end{longtable}}
+}
+\setglossarystyle{mylong}
+\setacronymstyle{long-short}
+\loadglsentries{glossary}
+
+% List of Symbols
+\newcommand{\listofXXX}{\input{extraList}}
+
+\begin{document}
+
+\title{Search for Vector Boson Scattering in semileptonic decay channel using CMS Experiment}
+
+\author{Ramanpreet Singh}
+
+\major{Physics}
+\degree{Dissertation}{Ph.D.}{Doctor of Philosophy}
+\degreedate{September}{2021}
+\department{Department of Physics}
+\director{Vishnu Zutshi}
+
+\begin{abstract}
+  \input{frontpages/abstract.tex}
+\end{abstract}
+
+\begin{acknowledgments}
+  \input{frontpages/acknowledgment.tex}
+\end{acknowledgments}
+
+\begin{dedication}
+  \input{frontpages/dedication.tex}
+\end{dedication}
+
+% Make Prologue
+\MakeThesisPrologue{}
+
+\glsresetall{}
+\include{chapter1}
+\include{chapter2}
+
+\begin{doublespace}
+  \nocite{*}
+  \bibliography{main}
+  \bibliographystyle{plain}
+\end{doublespace}
+
+% Appendices
+\appendix
+\include{appendix1}
+\include{appendix2}
+
+\end{document}
