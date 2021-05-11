@@ -5,6 +5,9 @@
         "james-yu.latex-workshop",
         "streetsidesoftware.code-spell-checker"
     ],
+    "containerEnv": {
+        "SHELL": "/bin/bash"
+    },
     "settings": {
         "terminal.integrated.inheritEnv": true,
         "editor.formatOnPaste": true,
