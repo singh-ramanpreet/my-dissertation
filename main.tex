@@ -12,6 +12,14 @@
 \usepackage{rotating}
 \usepackage{longtable}
 
+\usepackage[
+  style=numeric-comp,
+  sorting=none,
+  giveninits=true
+]{biblatex}
+\renewbibmacro{in:}{}
+\bibliography{main}
+
 \usepackage{hyperref}
 \hypersetup{
   bookmarksnumbered,%
@@ -19,7 +27,7 @@
   bookmarksopenlevel=1,%
   colorlinks=false,%
   pdfborder={0 0 0},%
-  plainpages=true,%
+  plainpages=false,%
   pdfencoding=auto,%
   psdextra,%
   linktoc=all,%
@@ -90,15 +98,15 @@
 % Make Prologue
 \MakeThesisPrologue{}
 
+% Reset glossary acronyms
 \glsresetall{}
+
+% Chapters
 \include{chapter1}
 \include{chapter2}
 
-\begin{doublespace}
-  \nocite{*}
-  \bibliography{main}
-  \bibliographystyle{plain}
-\end{doublespace}
+% References
+\printbibliography[heading=bibintoc, title={References}]
 
 % Appendices
 \appendix

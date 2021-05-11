@@ -7,5 +7,3 @@ sub makeglossaries {
   popd;
   return $return;
 }
-
-$clean_ext .= " loa acr acn alg glo gls glg ist";
