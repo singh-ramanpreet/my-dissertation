@@ -49,8 +49,12 @@
 \newglossarystyle{mylong}{
   \setglossarystyle{long}
   \renewenvironment{theglossary}%
-  {\begin{longtable}{lp{\glsdescwidth}}}%
+  {\setlength\LTleft{0pt}
+   \setlength\LTright{0pt}
+   \setlength{\glsdescwidth}{0.85\linewidth}
+   \begin{longtable}{@{}lp{\glsdescwidth}@{}}}%
   {\end{longtable}}
+  \renewcommand*{\glsgroupskip}{}
 }
 \setglossarystyle{mylong}
 \setacronymstyle{long-short}
@@ -72,15 +76,15 @@
 \director{Vishnu Zutshi}
 
 \begin{abstract}
-  \input{frontpages/abstract.tex}
+  \input{abstract}
 \end{abstract}
 
 \begin{acknowledgments}
-  \input{frontpages/acknowledgment.tex}
+  \input{acknowledgment}
 \end{acknowledgments}
 
 \begin{dedication}
-  \input{frontpages/dedication.tex}
+  \input{dedication}
 \end{dedication}
 
 % Make Prologue
