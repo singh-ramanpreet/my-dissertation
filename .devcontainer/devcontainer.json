@@ -9,7 +9,6 @@
         "SHELL": "/bin/bash"
     },
     "settings": {
-        "terminal.integrated.inheritEnv": true,
         "editor.formatOnPaste": true,
         "editor.formatOnSave": true,
         "latex-workshop.viewer.pdf.internal.port": 9001,
