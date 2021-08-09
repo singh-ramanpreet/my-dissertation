@@ -2,7 +2,7 @@
     "name": "latex",
     "image": "singhramanpreet/vscode-devcontainers:latex-2021-0.2",
     "extensions": [
-        "james-yu.latex-workshop",
+        "james-yu.latex-workshop@8.18.0",
         "streetsidesoftware.code-spell-checker"
     ],
     "containerEnv": {
