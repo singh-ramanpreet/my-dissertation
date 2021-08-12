@@ -2,7 +2,7 @@
     "name": "latex",
     "image": "singhramanpreet/vscode-devcontainers:latex-2021-0.2",
     "extensions": [
-        "james-yu.latex-workshop@8.18.0",
+        "james-yu.latex-workshop",
         "streetsidesoftware.code-spell-checker"
     ],
     "containerEnv": {
@@ -11,15 +11,11 @@
     "settings": {
         "editor.formatOnPaste": true,
         "editor.formatOnSave": true,
-        "latex-workshop.viewer.pdf.internal.port": 9001,
         "cSpell.diagnosticLevel": "Information",
         "cSpell.enabledLanguageIds": [
             "latex"
         ]
     },
-    "forwardPorts": [
-        9001
-    ],
     "remoteUser": "vscode",
     "shutdownAction": "stopContainer"
 }
