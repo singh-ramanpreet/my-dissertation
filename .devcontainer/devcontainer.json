@@ -9,6 +9,9 @@
         "SHELL": "/bin/bash"
     },
     "settings": {
+        "editor.rulers": [
+            80
+        ],
         "editor.formatOnPaste": true,
         "editor.formatOnSave": true,
         "cSpell.diagnosticLevel": "Information",
