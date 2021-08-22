@@ -95,13 +95,15 @@ and separately for years in Table~\ref{tab:years-lumi}
 
 The \gls{CMS} detector is a general purpose detector.
 A cutaway view of the detector is shown in Figure~\ref{fig:cms-cutaway}.
-It is cylindrical detector 21\m{} long, 15\m{} in diameter,
-and weighs about 14000 tonnes.
+The detector is cylindrical with dimensions 21 meters long, and 15 meters
+in diameter, and the whole detector weighs about 14000 tonnes.
 The detector is built in slices with central region called ``barrel'',
-and two ``endcap'' regions.
-A superconducting solenoid generated magnetic field of 3.8\Tesla{} inside
-and 2\Tesla{} outside to contain the magnetic field outside of solenoid
-and support structure of the detector massive steel yokes are used.
+and two closing end sides called ``endcap''.
+A superconducting solenoid generates magnetic field of 3.8\Tesla{} inside
+and 2\Tesla{} outside, and to contain the magnetic field outside of solenoid
+and support structure of the detector massive steel yokes are used.This section
+describes the subsystems of \gls{CMS} detector. For detailed technical
+description refer to~\cite{CMS-JINST-S08004}.
 
 \begin{figure}[!ht]
   \centering
@@ -138,8 +140,9 @@ CMS uses \gls{IP} of collisions as origin to define right-handed
 coordinate system. The \( z \)-axis is along the beamline,
 the \( x \)-axis points toward the center of the \gls{LHC},
 and the \( y \)-axis points upwards, toward Earth's surface.
-The transverse plane \( x - y \) is used to calculate
-transverse momentum \( p_{T} \) and energy \( E_{T} \).
+The transverse plane \( x - y \) is used as to calculate
+most commonly used quantities like transverse momentum \( p_{T} \)
+and energy \( E_{T} \).
 
 To describe the direction of particles leaving the \gls{IP},
 azimuthal \( \phi \) and polar \( \theta \) angles are used.
@@ -167,19 +170,68 @@ is described as,
   \Delta R = \sqrt{ {(\Delta \eta)}^{2} + {(\Delta \phi)}^{2} }
 \end{equation}
 
-
-
 \subsection{
   The Superconducting Magnet
 }
+
+The superconducting magnet is the main part of the \gls{CMS} detector, it is
+12.5 meters long and 6.3 meters in diameter. The magnet is cooled to
+4.5\,\text{K}\xspace and 20\,\text{kA}\xspace current flows through it to
+generate 3.8\Tesla{} of magnetic field with stored energy of 2.6\,\text{GJ}\xspace.
+
+The Figure~\ref{fig:cms-magnet} shows visible superconducting magnet
+and iron yoke when part of \gls{CMS} detector was lowered in the underground
+cavern during installation in 2007.
+
+The key purpose of magnet is to determine the momentum and the sign of charged
+particles by bending them. The momentum resolution of the particles will
+decrease with increase in \(p_T \), with constant 3.8\Tesla{} magnetic field
+inside and it has momentum resolution of \(\Delta p /p \approx 10 \% \), which
+is enough to determine unambiguously the sign of muons with
+momentum of \(\approx 1\TeV{}/c \).
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/cms_magnet_lowered.jpg}
+  \caption%
+  [The picture of the CMS detector central part when lowered in underground
+    cavern with superconducting magnet and iron
+    yoke visible]%
+  {The picture of the CMS detector central part when lowered in underground
+    cavern with superconducting magnet and iron
+    yoke visible~\cite{image-cms-magnet}.}%
+  \label{fig:cms-magnet}
+\end{figure}
+
 
 \subsection{
   The Tracking System
 }
 
-About \gls{CMS} Tracker System
+The \gls{CMS} tracking system \gls{ST} is the innermost part of the detector, it
+is made up of pixel and strip detectors. The main goal of \gls{ST} is to
+reconstruct the tracks of the charged particles with high precision in high pileup
+environment.
 
-Pixel Upgrade
+Silicon is most commonly used material for making tracking systems because of it's
+semiconductor properties, and high radiation hardness which is essential for the
+innermost detector. When a p-n junction is built on silicon substrate it creates
+a depletion zone with no charge carriers at the junction, and whenever
+a charged particle pass through the depletion zone it creates a electron-hole pair,
+and under reverse bias this electron-hole generates electrical signal. The \gls{CMS}
+tracking consists of about 124 million channels of such junctions in
+pixel detector and 10 million in strip detector.
+
+The pixel detector was upgraded in 2017 and the comparison of layers before
+and after the upgrade is shown in Figure~\ref{fig:cms-pixel}. It is made up of
+four barrel layers and three endcaps, with nearest barrel layer being 3\cm{}
+away from beamline for precise measurement of \gls{IP}.
+Because of the large number of pixel channels, the readout is done by \glspl{ASIC}.
+
+The outermost part of \gls{ST} detector is made of silicon strips. It allows large
+coverage by reducing number of readout channels. It has 10 layers in barrel region
+and 12 discs in endcap region. For better signal-to-noise ratio and radiation
+tolerance both pixel and strip operates at -20\de\,\text{C}\xspace.
 
 \begin{figure}[!ht]
   \centering
@@ -191,7 +243,10 @@ Pixel Upgrade
     \includegraphics[width=\textwidth]{figures/cms_pixel_phase1_04.png}
   \end{minipage}
   \caption[The CMS pixel upgrade]%
-  {The CMS pixel upgrade~\cite{image-cms-pixel}}%
+  {The CMS pixel upgrade. The left is cross sectional view of pixel detector
+    layers before upgrade (bottom) and after Phase 1 upgrade (top).
+    The right is view pixel barrel before upgrade (left)
+    and after upgrade (right)~\cite{image-cms-pixel}.}%
   \label{fig:cms-pixel}
 \end{figure}
 
@@ -208,7 +263,7 @@ Pixel Upgrade
 }
 
 \section{
-  Endcap Calorimeter Upgrade
+  High Granularity Calorimeter Upgrade
  }
 
 About \gls{HGCAL} Upgrade
