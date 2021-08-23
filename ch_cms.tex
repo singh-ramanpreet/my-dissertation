@@ -101,9 +101,7 @@ The detector is built in slices with central region called ``barrel'',
 and two closing end sides called ``endcap''.
 A superconducting solenoid generates magnetic field of 3.8\Tesla{} inside
 and 2\Tesla{} outside, and to contain the magnetic field outside of solenoid
-and support structure of the detector massive steel yokes are used.This section
-describes the subsystems of \gls{CMS} detector. For detailed technical
-description refer to~\cite{CMS-JINST-S08004}.
+and support structure of the detector massive steel yokes are used.
 
 \begin{figure}[!ht]
   \centering
@@ -123,6 +121,9 @@ and deposit their energy completely in \gls{HCAL}, leaving only small fraction
 of energy in \gls{ECAL}.
 Since muons are \gls{MIP}, they pass through whole detector with very small
 fraction of energy deposit in \gls{ECAL} and \gls{HCAL}.
+
+This section describes the subsystems of \gls{CMS} detector.
+For detailed technical description refer to~\cite{CMS-JINST-S08004}.
 
 \begin{figure}[!ht]
   \centering
@@ -228,11 +229,6 @@ four barrel layers and three endcaps, with nearest barrel layer being 3\cm{}
 away from beamline for precise measurement of \gls{IP}.
 Because of the large number of pixel channels, the readout is done by \glspl{ASIC}.
 
-The outermost part of \gls{ST} detector is made of silicon strips. It allows large
-coverage by reducing number of readout channels. It has 10 layers in barrel region
-and 12 discs in endcap region. For better signal-to-noise ratio and radiation
-tolerance both pixel and strip operates at -20\,\de\text{C}\xspace.
-
 \begin{figure}[!ht]
   \centering
   \begin{minipage}[c]{.62\textwidth}
@@ -250,16 +246,109 @@ tolerance both pixel and strip operates at -20\,\de\text{C}\xspace.
   \label{fig:cms-pixel}
 \end{figure}
 
+The outermost part of \gls{ST} detector is made of silicon strips. It allows large
+coverage by reducing number of readout channels. It has 10 layers in barrel region
+and 12 discs in endcap region. For better signal-to-noise ratio and radiation
+tolerance both pixel and strip operates at -20\,\de\text{C}\xspace.
+
 \subsection{
   The Electromagnetic Calorimeter
 }
+
+The \gls{ECAL} active material is made of lead tungstate (PbWO\textsubscript{4})
+scintillating crystals and two layers silicon strip for preshower
+in front of the endcaps. The crystals in central barrel section are mounted
+in quasi-projective geometry pointing towards \gls{IP} and covers
+\( |\eta| < 1.48 \), and two endcaps extends the coverage to
+\( |\eta| = 3.0 \). The schematic layout of \gls{ECAL} is shown in Figure~\ref{fig:cms-ecal-schematic}
+and the picture of endcap quadrant when assembled in Figure~\ref{fig:cms-ecal-ee}
+
+The main purpose of \gls{ECAL} is to determine energy and positions of
+electromagnetically interacting particles. To determine particle need to completely
+deposit their energy, except electron and photons all other particles pass
+through \gls{ECAL} crystals with only small fraction of energy signature in crystals.
+When electron and photon interacts with PbWO\textsubscript{4} it starts the process
+of electromagnetic shower and continues until the energy the energy of the incident
+particle is below threshold, which is about 1\MeV{}.
+
+\begin{figure}[!ht]
+  \centering
+  \begin{minipage}[c]{.60\textwidth}
+    \includegraphics[width=\textwidth]{figures/cms_ecal_schematic.pdf}
+  \end{minipage}
+  \begin{minipage}[c]{.38\textwidth}
+    \includegraphics[width=\textwidth]{figures/cms_ecal_layout.png}
+  \end{minipage}
+  \caption[The CMS ECAL schematic layout]%
+  {The CMS ECAL schematic layout. The left is schematic showing arrangement of
+    superclusters in barrel and endcap (with preshower layers). The right is \(y-z \)
+    plane quarter view of ECAL layout~\cite{image-cms-ecal-layout}.}%
+  \label{fig:cms-ecal-schematic}
+\end{figure}
+
+The resolution of the \gls{ECAL} energy measurements can be described as,
+
+\begin{equation}
+  {\left( \frac{\sigma}{E} \right)}^2
+  = {\left( \frac{S}{\sqrt{E}} \right)}^2
+  + {\left( \frac{N}{E} \right)}^2
+  + C^2
+\end{equation}
+
+where \(S \) is the stochastic term, \(N \) is related to the noise,
+and C is a constant offset.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.60\textwidth]{figures/cms_ecal_ee_quadrant.jpg}
+  \caption[The \gls{ECAL} endcap quadrant assembled view]%
+  {The \gls{ECAL} endcap quadrant assembled view~\cite{image-cms-ecal-ee-quadrant}.}%
+  \label{fig:cms-ecal-ee}
+\end{figure}
 
 \subsection{
   The Hadronic Calorimeter
 }
 
+\gls{HCAL}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/cms_hcal_hb_inserted.jpg}
+  \caption[The first half of the barrel \gls{HCAL} inserted into the
+    superconducting solenoid (April 2006)]%
+  {The first half of the barrel \gls{HCAL} inserted into the
+    superconducting solenoid (April 2006)~\cite{image-cms-hcal-inserted}.}%
+  \label{fig:cms-hcal-inserted}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/cms_hcal_depth_seg.pdf}
+  \caption[The \gls{HCAL} depth segmentation after phase 1 upgrade]%
+  {The \gls{HCAL} depth segmentation after phase 1 upgrade~\cite{image-cms-hcal-depth}.}%
+  \label{fig:cms-hcal-depth}
+\end{figure}
+
 \subsection{
-  The Trigger System
+  Muon System
+}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/cms_muon_system.pdf}
+  \caption[The quadrant view of CMS subdetectors layout, and
+    the coverage of the muon detector \glspl{DT}, \glspl{CSC},
+    and \glspl{RPC} highlighted]%
+  {The quadrant view of CMS subdetectors layout, and
+    the coverage of the muon detector \glspl{DT}, \glspl{CSC},
+    and \glspl{RPC} highlighted~\cite{image-cms-muon-system}.}%
+  \label{fig:cms-muon-system}
+\end{figure}
+
+
+\subsection{
+  Level 1 Trigger
 }
 
 \section{
