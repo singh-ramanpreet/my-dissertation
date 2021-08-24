@@ -279,10 +279,10 @@ particle is below threshold, which is about 1\MeV{}.
   \begin{minipage}[c]{.38\textwidth}
     \includegraphics[width=\textwidth]{figures/cms_ecal_layout.png}
   \end{minipage}
-  \caption[The CMS ECAL schematic layout]%
-  {The CMS ECAL schematic layout. The left is schematic showing arrangement of
+  \caption[The CMS gls{ECAL} schematic layout]%
+  {The \gls{CMS} gls{ECAL} schematic layout. The left is schematic showing arrangement of
     superclusters in barrel and endcap (with preshower layers). The right is \(y-z \)
-    plane quarter view of ECAL layout~\cite{image-cms-ecal-layout}.}%
+    plane quarter view of \gls{ECAL} layout~\cite{image-cms-ecal-layout}.}%
   \label{fig:cms-ecal-schematic}
 \end{figure}
 
@@ -310,7 +310,18 @@ and C is a constant offset.
   The Hadronic Calorimeter
 }
 
-\gls{HCAL}
+\gls{HCAL} is last subdetector inside solenoid after
+\gls{ECAL} and the first half of barrel \gls{HCAL} inserted is shown in
+Figure~\ref{fig:cms-hcal-inserted}. Similar to \gls{ECAL} the purpose of \gls{HCAL}
+is to shower hadrons, and measure their energy and position. \gls{HCAL} is made up of
+towers pointing towards \gls{IP} and each tower is made up of sampling layers
+with alternating layers of plastic scintillator and brass.
+Brass acts as absorber in \gls{HCAL} and causes hadrons to shower, then from the light
+output of scintillator receiving secondary shower particles gives the amount of
+energy deposit in each layer. In phase 1 upgrade the \gls{HCAL} was upgraded
+to give energy deposit as function of depths and the depth segmentation schematic is
+show in Figure~\ref{fig:cms-hcal-depth} and the details of upgrade are in technical design
+report~\cite{cms-hcal-upgrade}.
 
 \begin{figure}[!ht]
   \centering
@@ -322,6 +333,18 @@ and C is a constant offset.
   \label{fig:cms-hcal-inserted}
 \end{figure}
 
+\gls{HCAL} consists barrel (HB) and two endcaps (HE) located inside solenoid.
+These two subsystems combined cover region \( |\eta| = 3.0 \), which
+is most of physics analysis done in \gls{CMS}.
+There are two another subsystems of \gls{HCAL} outside solenoid,
+a forward \gls{HCAL} (HF) and outer barrel \gls{HCAL} (HO).
+HO was added to ensure there is no leak from the particles that
+make past the solenoid. HF extends the coverage
+to \(|\eta| = 5.0\) and is based Cherenkov radiation principle unlike
+other subsystems of \gls{HCAL}, and it uses quartz fiber
+as active material with steel absorbers.
+HF is used most commonly used by heavy ion analysis.
+
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=\textwidth]{figures/cms_hcal_depth_seg.pdf}
@@ -331,12 +354,29 @@ and C is a constant offset.
 \end{figure}
 
 \subsection{
-  Muon System
+  Muon Detector
 }
+
+The outermost subsystem in the \gls{CMS} detector is the muon detector.
+Unlike electrons, muons are \glspl{MIP}, they do not lose much of their energy
+while passing through tracker, calorimeter and solenoid.
+Muon detector is build to identify, measure momentum and trigger the events
+with muons. Like other subsystems, muon detector consists of barrel and endcap
+detector and schematic layout is highlighted in Figure~\ref{fig:cms-muon-system}.
+
+The muon detector consists of three subsystems \glspl{DT}, \glspl{CSC} and
+\glspl{RPC}.
+
+The \glspl{DT} are wire gas detectors filled with Argon and composed of
+many tube cells of about 4\cm{}. Muon passing through these tubes
+ionizes Argon and free electron is detected with wires as cathode.
+Each DT is about 2 meters by 2.5 meters in size, and there are four layers
+of the \glspl{DT} interleaved with iron yoke parallel to
+the beam pipe in barrel region. The drift time is the order of about 380\nanoseconds.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=\textwidth]{figures/cms_muon_system.pdf}
+  \includegraphics[width=0.9\textwidth]{figures/cms_muon_system.pdf}
   \caption[The quadrant view of CMS subdetectors layout, and
     the coverage of the muon detector \glspl{DT}, \glspl{CSC},
     and \glspl{RPC} highlighted]%
@@ -346,13 +386,72 @@ and C is a constant offset.
   \label{fig:cms-muon-system}
 \end{figure}
 
+The \glspl{CSC} are based on same principle as \glspl{DT},
+and are made of multi-wire proportional chambers consisting of
+6 anode planes interleaved with 7 cathode planes. They have time resolution
+smaller than 5\nanoseconds. The \glspl{CSC} are used in endcap region,
+where radiation hardness is required, and non uniform magnetic field does neutrinos
+effects the the measurement.
+
+The \glspl{RPC} are made up of two high resistive parallel
+plates, with oppositely charged plates and gas volume between them.
+When a charged particles passes through it and ionizes the gas, it creates
+an avalanche and charge is collected by metallic readout strips.
+\glspl{RPC} have poor position resolution but fast readout of the order of 1\nanoseconds,
+which is fast compared to \glspl{DT}, this is the reason there are 1 or 2 \glspl{RPC}
+attached to both \glspl{DT}, and \glspl{CSC}.
 
 \subsection{
   Level 1 Trigger
 }
+
+Since proton-proton collisions happens every bunch crossing which is
+25\nanoseconds{} apart, which is equivalent to 40\,\text{MHz}\xspace collisions rate.
+At this collisions rate, the data storage required will be enormous
+and \gls{CMS} can only record up to 1000 events per second. Since most of events
+does not contain interesting physics events, they can be thrown away.
+To do this \gls{CMS} has two tier trigger system \gls{L1T}, and \gls{HLT}.
+
+The \gls{L1T} is the foremost electronic processing system through
+which event information is processed before it is passed to
+second trigger system \gls{HLT}.
+The \gls{L1T} is designed to make fast decisions in about 3.8\mus,
+and only uses \gls{ECAL}, \gls{HCAL} and muon system to make decision.
+\gls{L1T} cut downs the data rate from 40\,\text{MHz}\xspace to
+100\,\text{kHz}\xspace. The \gls{L1T} electronics is placed next to
+the detector in underground cavern for fast transfer of data.
+
+The \gls{HLT} further reduces the data rate from 100\,\text{kHz}\xspace to
+about 1\,\text{kHz}\xspace using a computer farm with nearly 26000 cores.
+\gls{HLT} uses all the available information from the event to make
+decision in about 300m\seconds. \gls{HLT} is modular by design
+to allow the use of information from different systems to construct
+multiple paths called \gls{HLT} paths, for example the single muon \gls{HLT}
+path will save event with at least one muon passing the selection criteria
+set in \gls{HLT} path. Events passing at least on \gls{HLT} path are
+save for offline physics analysis.
 
 \section{
   High Granularity Calorimeter Upgrade
  }
 
 About \gls{HGCAL} Upgrade
+
+\subsection{
+  Technical Design
+}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/hgcal_quadrant.pdf}
+  \caption[Overview of CE]{Overview of CE~\cite{image-cms-hgcal-quadrant-layout}}%
+  \label{fig:cms-hgcal-quadrant-layout}
+\end{figure}
+
+\subsection{
+  Scintillator Tiles
+}
+
+\subsection{
+  End of Life Scenario
+}

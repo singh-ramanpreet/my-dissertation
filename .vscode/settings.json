@@ -66,8 +66,13 @@
         "pdfsubject",
         "pdftitle",
         "plainpages",
+        "preshower",
         "psdextra",
         "pseudorapidity",
-        "semileptonic"
+        "semileptonic",
+        "subdetector",
+        "subdetectors",
+        "superclusters",
+        "textsubscript"
     ]
 }
