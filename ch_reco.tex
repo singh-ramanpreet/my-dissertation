@@ -2,8 +2,31 @@
   Event Simulation and Reconstruction
  }\label{ch_reco}
 
+The proton-proton collision at \gls{LHC} produces shower of particles, before
+the event information can be easily used in an analysis, the data collected goes
+through iterative process of reconstruct particles produced in collision.
+\gls{CMS} uses \gls{PF} algorithm to reconstruct 4-vectors of muons, electrons,
+photons, hadrons, jets and missing transverse momentum~\cite{cms-particle-flow-2017}.
+
+To analyze the data collected and compare it with theoretical model, events are
+simulated using \gls{MC} event generators and are passed through detector simulation
+and \gls{PF} so that \gls{MC} events can be treated same as real events.
+
+This chapter describes the basic ingredients for object reconstruction, \gls{PF}
+candidates and \gls{MC} event generators used in this analysis.
+
 \section{
-  Object Reconstruction
+  Track Reconstruction
+ }
+
+\gls{KF}~\cite{cms-track-reco} \GEANTfour{}
+
+\section{
+  Calorimeter Clustering
+ }
+
+\section{
+  Particles Flow Candidates
  }
 
 \subsection{
@@ -15,12 +38,16 @@
 }
 
 \subsection{
-  Jets
+  Hadrons and Jets
+}
+
+\subsection{
+  Missing transverse momentum
 }
 
 \section{
   Monte Carlo Simulation
- }\label{ch_reco:mc}
+ }
 
 \subsection{
   Generators
