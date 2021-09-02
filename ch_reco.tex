@@ -16,30 +16,177 @@ This chapter describes the basic ingredients for object reconstruction, \gls{PF}
 candidates and \gls{MC} event generators used in this analysis.
 
 \section{
-  Track Reconstruction
- }
+  Track Reconstruction and Calorimeter Clustering
+ }\label{ch_reco:track-calo}
 
-\gls{KF}~\cite{cms-track-reco} \GEANTfour{}
+For complete particle reconstruction two main ingredients are tracks left by particle
+in the detector, and energy deposit in calorimeter. This section describes track reconstruction
+from the hits in Tracker and Muon Detector, and energy deposit measurement from
+calorimeter clustering.
+
+Track reconstruction requires reconstructed hits, and seed generation which are
+described in~\cite{cms-track-vertex}, then the track reconstruction is done using
+pattern recognition which is based on combinatorial \gls{KF} method~\cite{cms-track-reco}.
+It is an iterative process starting from seed layer the track is estimated and then
+proceeds to next layer one by one, at each successive layer the track trajectory
+is better known. There can be multiple hits in each new layer, for this multiple
+trajectory candidates are created. All the trajectory candidates are grown in parallel
+to avoid bias, and truncated at each layer to prevent exponential increase
+in number of candidates. Then finally the track is fitted to compute momentum
+and vertex information.
+
+The main purpose of calorimeter clustering is to determine position and
+energy deposit of the particle. A cluster in a calorimeter is a local group of
+energy deposits that are spatially consistent with a electromagnetic
+or hadronic shower. First the topological
+clusters are identified, a topological cluster is a contiguous region of energy
+deposit, then a seed is identified in topological cluster with certain energy
+threshold, and highest among the 8 neighbors for \gls{ECAL} and 4 neighbors for \gls{HCAL}.
+Now starting with seed energy and position, the neighbors energy are added, and
+new position is calculated. For the case when we have just one seed, there is only
+iteration until all the neighbors are added, in case when we have more than one seeds
+in a cluster, the energy from neighbors is shared, the fraction of energy shared
+depends on the energy and position of the cluster, after the first
+iteration of calculation of the energy and position the
+process is repeated with new values of cluster's energy and
+position until either the maximum iteration is reached or cluster's energy and position
+values are converged.
 
 \section{
-  Calorimeter Clustering
+  Reconstructed Particles
  }
 
-\section{
-  Particles Flow Candidates
- }
+After tracks and calorimeter clusters are formed, \gls{PF} links this information
+from the detectors together to form objects as broadly discussed in
+Section~\ref{ch_cms:cms} and shown in Figure~\ref{fig:cms-slice}. This section
+describes the properties of those reconstructed particle candidates.
 
 \subsection{
   Muons
 }
 
+Reconstructing muon with best precision is the key ingredient for many physics
+searches. Muons reconstruction and identification uses all the information from tracker,
+calorimeters and muon detector. There are two types of reconstruction performed
+``Global'' and ``Tracker'' for muon candidates. Global muons are formed combining and refitting
+muon hits in the muon detector with compatible track from \gls{ST}, and the tracker muons
+are formed by extrapolating tracks from \gls{ST} to segments in muon detector.
+
+Once the muon candidates are found, the kinematics properties (\( p_T, \eta, \phi \))
+are calculated from track fitting, and other properties such as distance form
+\gls{PV} \( dxy \), \( dz \), number of hits in the tracker and muon system, tracker
+based relative isolation (\ref{eq:trackerRelIso-muon}) in a cone of \( \Delta R = 0.3 \), and
+\gls{PF} relative based isolation (\ref{eq:pfRelIso-muon})
+in a cone of \( \Delta R = 0.4 \) are stored for cleaning and isolating muons for
+physics analysis.
+
+The tracker and \gls{PF} based relative isolation are defined as,
+
+\begin{equation}\label{eq:trackerRelIso-muon}
+  \text{TkIso03} = \left( \sum p_{T}^{\text{Tracks (PV)}} \right) /
+  \left( p_{T}^{\mu} \right)
+\end{equation}
+
+\begin{equation}\label{eq:pfRelIso-muon}
+  \text{PFRelIso04} = \left( \sum p_{T}^{\text{CH (PV)}}
+  + \min \left[ 0, \sum E_{T}^{\text{NH}} + \sum E_{T}^{\gamma}
+    - 0.5 \sum p_{T}^{\text{CH (PU)}} \right] \right) /
+  \left( p_{T}^{\mu} \right)
+\end{equation}
+
+where ``Tracks (PV)'' refers to all the tracks in tracker and coming from \gls{PV},
+``CH (PV)'' and ``CH (PU)'' refers to charged hadrons coming from \gls{PV} and \gls{PU}
+respectively, ``NH'' refers to neutral hadrons, \( \mu \) refers to muon, and
+\( \gamma \) refers to photon.
+
+There are multiple source of muons whenever collision event happens, they can be
+real muons or hadrons which are misidentified as muons, these hadrons
+are able ``punch'' through \gls{HCAL} and leaves hit in muon detector. The real
+muons of interest are called ``prompt'' muons and others are either usually referred
+as ``fake'' or ``non-prompt''. Fake muons can originate from decay of pions and kaons in flight
+usually identified with a ``kink'' in track or from heavy flavor decay of \textit{b} or \textit{c}-quarks
+which are identified with tracks not originating form \gls{PV}.
+The prompt muons are the ones coming from decay of \textit{H}, \textit{W}, \textit{Z} bosons and \( \tau \) leptons,
+and have small impact parameter from \gls{PV}, have hits in both tracker
+and muon detector, and are typically well isolated.
+
+In addition to muons from collision events, there can be cosmic muons from pion decay in
+upper atmosphere. Cosmic muons are generally not in-time with collision and far from
+interaction points.
+
 \subsection{
   Electrons and Photons
 }
 
+Since there is large amount of material in tracker, electrons often emit bremsstrahlung
+photons when passing through tracker volume,
+and photons can further decay to \( e^- e^+ \) pair which complicates the
+tracking algorithm. The energy deposit of such electrons
+emitting bremsstrahlung will have large spread in \( \phi \) direction because
+the magnetic field will bend electrons in \( \phi \) whereas photons are unaffected.
+For this reason electron and photon reconstruction are done together, and
+the \gls{GSF} algorithm is used for electron track reconstruction
+which takes care of kinks in electrons track because of hard emission~\cite{cms-electron-gsf}.
+
+An electron is reconstructed when an \gls{ECAL} cluster matches a \gls{GSF} track,
+and a photon is reconstructed when an \gls{ECAL} cluster with \( E_T \)
+more than 10\GeV{} is found and have no matching \gls{GSF} track. To prevent
+electron and photon from being misidentified as jets certain conditions are applied,
+for electron the number of \gls{GSF} track matching with \gls{ECAL} cluster is limited to
+maximum of two, and energy deposit in a cone of \( \Delta R = 0.15 \) in \gls{HCAL}
+around the position of electrons and photons is required to be less than 10\%.
+
+Similar to muons, after electron and photon reconstruction is done, their kinematics properties
+are calculated and various other properties required for cut based
+and \gls{MVA} based identification are stored. The detailed description of electrons
+and photons identification technique and properties used in this dissertation
+can be found in Reference~\cite{cms-egamma-id}.
+
 \subsection{
   Hadrons and Jets
 }
+
+Quarks and gluons produced in a collision event are not detected directly,
+because color confinement, they go through fragmentation and
+hadronization making a collimated spray of particles mostly made of hadrons
+called ``jet''. Charged hadrons are reconstructed when a \gls{HCAL} cluster can be associated with
+one or more tracks, if the track association fails the cluster is reconstructed as
+neutral hadron.
+
+Jet in \gls{CMS} are reconstructed using \FASTJET{} package~\cite{fastjet-manual},
+which takes input of all \gls{PF} candidates and associated tracks. The clustering
+basically combines 4-vectors of particles iteratively and stop when distance between
+two particles (\( d_{ij} \)) is higher than stopping distance (\( d_{iB} \)).
+
+\( d_{ij} \) and \( d_{iB} \) are defined as,
+\begin{equation}
+  d_{ij} = \min (p_{Ti}^{2p}, p_{Tj}^{2p}) \frac{\Delta R_{ij}^{2}}{R^{2}}
+\end{equation}
+\begin{equation}
+  d_{iB} = p_{Ti}^{2p}
+\end{equation}
+
+where \( p \) is the parameter for different clustering algorithms, \( R \) is the
+cone size, and
+\( \Delta R_{ij} \) is distance between two particles in iteration.
+
+Anti-\( k_T \) (AK) is the most use jet algorithm in physics analysis, this corresponds to
+\( p = -1\), this means the hard particles will be clustered first in this clustering
+algorithm.
+The cone size used for standard jets (AK4) is \( R = 0.4 \), and for large jets (AK8) often called
+``fatjet'' is \( R = 0.8 \).
+
+To mitigate the effect of \gls{PU} contamination in jets two most commonly used
+techniques are \gls{CHS} and \gls{PUPPI}~\cite{puppi2014}.
+\gls{CHS} as the name suggests removes all the \gls{PF} in the jet clustering which are
+originating from \gls{PU} vertices, and it is a standard technique for AK4 jets.
+\gls{PUPPI} works by identifying \gls{PU} in an event from charged \gls{PU} information,
+then it assigns a weight to all the other particles inside jet, such as neutral particles,
+the weight is then used to rescale momentum of those particles.
+The main limitation of \gls{CHS} is that it only removes charged \gls{PU} contribution,
+for larger jets it can be issue, since it is clustering larger number of particles
+and can have significant contribution from neutral hadrons, for this reason \gls{PUPPI}
+technique is used for AK8 jets.
 
 \subsection{
   Missing transverse momentum
