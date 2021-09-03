@@ -57,8 +57,12 @@
     "latex-workshop.view.pdf.zoom": "page-fit",
     "cSpell.words": [
         "beamline",
+        "declusttering",
         "endcap",
         "endcaps",
+        "fatjet",
+        "Fatjets",
+        "hadronically",
         "linktoc",
         "pdfauthor",
         "pdfencoding",
@@ -70,8 +74,12 @@
         "psdextra",
         "pseudorapidity",
         "semileptonic",
+        "softdrop",
         "subdetector",
         "subdetectors",
+        "subjet",
+        "subjetiness",
+        "subjets",
         "superclusters",
         "textsubscript"
     ]

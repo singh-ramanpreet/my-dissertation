@@ -147,9 +147,9 @@ can be found in Reference~\cite{cms-egamma-id}.
 }
 
 Quarks and gluons produced in a collision event are not detected directly,
-because color confinement, they go through fragmentation and
+because of color confinement, they go through fragmentation and
 hadronization making a collimated spray of particles mostly made of hadrons
-called ``jet''. Charged hadrons are reconstructed when a \gls{HCAL} cluster can be associated with
+and are called ``jets''. Charged hadrons are reconstructed when a \gls{HCAL} cluster can be associated with
 one or more tracks, if the track association fails the cluster is reconstructed as
 neutral hadron.
 
@@ -188,9 +188,123 @@ for larger jets it can be issue, since it is clustering larger number of particl
 and can have significant contribution from neutral hadrons, for this reason \gls{PUPPI}
 technique is used for AK8 jets.
 
+To improve the jet selection and reject jets originating purely from \gls{PU}
+two methods are used in this dissertation, jet identification based on
+multiplicities and energy fraction of particles contained in the jet,
+and \gls{MVA} based \gls{PU} identification which uses jets shape
+variables to discriminate prompt jet from pileup jets.
+The details of \gls{PU} mitigation and identification used in
+\gls{CMS} are described in Reference~\cite{cms-jme-pu-run2}.
+
+After jets reconstruction is complete the in addition to calculating kinematics
+properties (\( p_T \), \( \eta \), \( \phi \) and mass), various other
+properties such as \textit{b}-quark tagging and quark-gluon likelihood are also
+calculated and stored.
+
+\subsubsection{
+  N-Subjetiness and Deep Taggers
+}
+
+The origin of fatjets are usually when heavy energetic particle
+often referred to as ``boosted'' decays hadronically,
+for example boosted \textit{W} or \textit{Z} bosons decaying to a pair of quarks.
+To find and discriminate the fatjet of interest based on in it's substructure
+the two technique studied and used are N-Subjetiness~\cite{tau21-paper}
+and ``deep tagger''~\cite{cms-jme-deep-tagger}.
+
+N-Subjetiness is defined as,
+\begin{equation}
+  \tau_N = \frac{1}{d_0} \sum_k p_{T,k} \min \{ \Delta R_{1,k}, \Delta R_{2,k}, \ldots , \Delta R_{N,k} \}
+\end{equation}
+where \( k \) runs over constituent particles in a jet, \( \Delta R_{J,k} \)
+is the distance between subjet \( J \) and \( k \) constituent, and \( d_0 \)
+is the normalization constant defined as,
+\begin{equation}
+  d_0 = \sum_k p_{T,k} R_0
+\end{equation}
+
+\( \tau_N \) quantifies to what degree a jet can be regarded as made of \( N \) jets.
+The small values of the \( \tau_N \) means a jet is more likely to have
+\( N \) or less subjets, and higher value means it will at least have \( N + 1\)
+subjets. Rather than using \( \tau_N \) alone, ratio of different \( \tau_N \)
+variables is used, which more discriminating for cases like \textit{W} vs QCD jets.
+Figure~\ref{fig:cms-tau21-tau32-comparison} shows distribution of
+\( \tau_{21} \) and \( \tau_{32} \) shapes in signal and background.
+\( \tau_{21} \) is used to discriminate fatjets with 2-prongs (\textit{W/Z/H})
+and \( \tau_{32} \) with 3-prongs (\textit{t} quark) substructure against QCD jets.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/CMS_JME_18_002_Figure_003.pdf}
+  \caption[Comparison of \( \tau_{21} \) and \( \tau_{32} \) shapes for signal and background in AK8 jets]%
+  {Comparison of \( \tau_{21} \) and \( \tau_{32} \) shapes for signal and background in AK8 jets.
+    The left is \( \tau_{21} \) distribution showing discrimination \textit{W/Z/H} jets
+    vs QCD jet, and the right is \( \tau_{32} \) distribution for \textit{t} quark vs
+    QCD jets~\cite{cms-jme-deep-tagger}.}%
+  \label{fig:cms-tau21-tau32-comparison}
+\end{figure}
+
+Deep Tagger for AK8 are \gls{ML} based tagger developed to determine
+origin of a fatjet. These taggers are trained on particle level information
+from \gls{PF} and provide multi class tagging probabilities. In addition to
+there are version of these taggers is also which is de-correlated from the mass of jet,
+this is important for analysis including this dissertation where we utilize
+mass regions of fatjet to normalize background contribution. Figure~\ref{fig:cms-deepAK8-arch}
+describes the architecture of ``DeepAK8'' tagging.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/CMS_JME_18_002_Figure_009.pdf}
+  \caption[The network architecture of DeepAK8]%
+  {The network architecture of DeepAK8~\cite{cms-jme-deep-tagger}}%
+  \label{fig:cms-deepAK8-arch}
+\end{figure}
+
+\subsubsection{
+  Softdrop Mass
+}
+
+Fatjets can also have contamination coming from wide angle
+soft \gls{ISR} and multiple hadron scattering,
+which affects the mass calculation of the jet, to remove
+such contamination and have better mass reconstruction, the
+``softdrop'' mass algorithm~\cite{softdrop-mass-2014} is used.
+
+Softdrop is a declusttering algorithm which removes the particle from the jet
+with radius \( R_0 \), when the following condition between two particles is satisfied,
+
+\begin{equation}
+  \frac{\min(p_{T,1}, p_{T,2})}{p_{T,1} + p_{T,2}} > z_{cut} {\left( \frac{\Delta R_{12}}{R_0} \right)}^{\beta}
+\end{equation}
+
+where \( \Delta R_{12} \) is the distance between the two particles, \( z_{cut} \)
+and \( \beta \) are the parameters for tuning softdrop declusttering.
+For fatjets used in \gls{CMS}, they have softdrop applied with
+\( \beta = 0\) and \( z_{cut} = 0.1\) which vetoes both soft
+and soft-collinear emissions in a jet.
+
 \subsection{
   Missing transverse momentum
 }
+
+Invisible particles like neutrinos cannot be detected at \gls{CMS} directly.
+Kinematics of such particles can be determined using laws of conservation of
+total momentum. In case of proton-proton collision,
+the actual collision happens between quarks contained in
+proton and quarks carry fraction of proton momentum
+and can not be determined exactly, for this reasons kinematic determination
+of invisible particles is limited to transverse plane only.
+
+After all the particles are reconstructed in an event, their \( p_T \)'s
+can be used to determine missing transverse momentum as,
+
+\begin{equation}
+  \vec{p}_{T}^{miss} = - \sum \vec{p}_{T}
+\end{equation}
+
+It's usually neutrinos which contributes to missing transverse momentum,
+and they have very small mass, the missing transverse momentum is then
+equivalent to \gls{MET}, which is most often used term in physics analysis.
 
 \section{
   Monte Carlo Simulation
