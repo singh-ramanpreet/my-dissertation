@@ -5,6 +5,12 @@
             "tools": [
                 "latexmk"
             ]
+        },
+        {
+            "name": "tikz-feynman",
+            "tools": [
+                "tikz-feynman"
+            ]
         }
     ],
     "latex-workshop.latex.tools": [
@@ -20,6 +26,16 @@
                 "%DOC%"
             ],
             "env": {}
+        },
+        {
+            "name": "tikz-feynman",
+            "command": "lualatex",
+            "args": [
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
         }
     ],
     "latex-workshop.chktex.enabled": true,

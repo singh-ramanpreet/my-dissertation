@@ -1,0 +1,20 @@
+\documentclass[tikz]{standalone}
+\usepackage[com pat=1.1.0]{tikz-feynman}
+\begin{document}
+\begin{tikzpicture}
+    \begin{feynman}
+        \vertex (o1);
+        \vertex [above left=of o1] (a) {\(V\)};
+        \vertex [below left=of o1] (b) {\(V\)};
+        \vertex [right=of o1] (o2);
+        \vertex [above right=of o2] (c) {\(V\)};
+        \vertex [below right=of o2] (d) {\(V\)};
+
+        \diagram* {
+        (a) -- [boson] (o1) -- [boson] (b),
+        (o1) -- [scalar, edge label=\(H\)] (o2),
+        (c) -- [boson] (o2) -- [boson] (d),
+        };
+    \end{feynman}
+\end{tikzpicture}
+\end{document}
