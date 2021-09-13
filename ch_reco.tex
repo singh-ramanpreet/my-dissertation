@@ -81,12 +81,12 @@ in a cone of \( \Delta R = 0.4 \) are stored for cleaning and isolating muons fo
 physics analysis.
 
 The tracker and \gls{PF} based relative isolation are defined as,
-
+%
 \begin{equation}\label{eq:trackerRelIso-muon}
   \text{TkIso03} = \left( \sum p_{T}^{\text{Tracks (PV)}} \right) /
   \left( p_{T}^{\mu} \right)
 \end{equation}
-
+%
 \begin{equation}\label{eq:pfRelIso-muon}
   \text{PFRelIso04} = \left( \sum p_{T}^{\text{CH (PV)}}
   + \min \left[ 0, \sum E_{T}^{\text{NH}} + \sum E_{T}^{\gamma}
@@ -159,9 +159,11 @@ basically combines 4-vectors of particles iteratively and stop when distance bet
 two particles (\( d_{ij} \)) is higher than stopping distance (\( d_{iB} \)).
 
 \( d_{ij} \) and \( d_{iB} \) are defined as,
+%
 \begin{equation}
   d_{ij} = \min (p_{Ti}^{2p}, p_{Tj}^{2p}) \frac{\Delta R_{ij}^{2}}{R^{2}}
 \end{equation}
+%
 \begin{equation}
   d_{iB} = p_{Ti}^{2p}
 \end{equation}
@@ -213,12 +215,15 @@ the two technique studied and used are N-Subjetiness~\cite{tau21-paper}
 and ``deep tagger''~\cite{cms-jme-deep-tagger}.
 
 N-Subjetiness is defined as,
+%
 \begin{equation}
   \tau_N = \frac{1}{d_0} \sum_k p_{T,k} \min \{ \Delta R_{1,k}, \Delta R_{2,k}, \ldots , \Delta R_{N,k} \}
 \end{equation}
+
 where \( k \) runs over constituent particles in a jet, \( \Delta R_{J,k} \)
 is the distance between subjet \( J \) and \( k \) constituent, and \( d_0 \)
 is the normalization constant defined as,
+%
 \begin{equation}
   d_0 = \sum_k p_{T,k} R_0
 \end{equation}
@@ -272,7 +277,7 @@ such contamination and have better mass reconstruction, the
 
 Softdrop is a declusttering algorithm which removes the particle from the jet
 with radius \( R_0 \), when the following condition between two particles is satisfied,
-
+%
 \begin{equation}
   \frac{\min(p_{T,1}, p_{T,2})}{p_{T,1} + p_{T,2}} > z_{cut} {\left( \frac{\Delta R_{12}}{R_0} \right)}^{\beta}
 \end{equation}
@@ -297,9 +302,9 @@ of invisible particles is limited to transverse plane only.
 
 After all the particles are reconstructed in an event, their \( p_T \)'s
 can be used to determine missing transverse momentum as,
-
+%
 \begin{equation}
-  \vec{p}_{T}^{miss} = - \sum \vec{p}_{T}
+  \vec{p}_{T}^{~miss} = - \sum \vec{p}_{T}
 \end{equation}
 
 It's usually neutrinos which contributes to missing transverse momentum,
