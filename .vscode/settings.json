@@ -75,6 +75,9 @@
         "beamline",
         "Chromodynamics",
         "declusttering",
+        "deta",
+        "dibos",
+        "Diboson",
         "endcap",
         "endcaps",
         "EWSB",
@@ -87,6 +90,7 @@
         "Higgs",
         "hypercharge",
         "isospin",
+        "Kolmogorov",
         "leptonically",
         "linktoc",
         "pdfauthor",
@@ -96,11 +100,15 @@
         "pdftitle",
         "Perturbatively",
         "plainpages",
+        "postfit",
         "preshower",
         "psdextra",
         "pseudorapidity",
+        "qgid",
+        "RECO",
         "Salam",
         "semileptonic",
+        "Smirnov",
         "softdrop",
         "spinor",
         "subdetector",
@@ -111,6 +119,8 @@
         "superclusters",
         "textsubscript",
         "unitarity",
-        "WWZZ"
+        "WWZZ",
+        "zepp",
+        "Zeppenfeld"
     ]
 }
