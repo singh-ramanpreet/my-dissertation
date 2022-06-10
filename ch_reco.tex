@@ -250,12 +250,16 @@ and \( \tau_{32} \) with 3-prongs (t-quark) substructure against QCD jets.
 \end{figure}
 
 Deep Tagger for AK8 are \gls{ML} based tagger developed to determine
-origin of a fatjet. These taggers are trained on particle level information
-from \gls{PF} and provide multi class tagging probabilities. In addition to
-there are version of these taggers is also which is de-correlated from the mass of jet,
-this is important for analysis including this dissertation where we utilize
-mass regions of fatjet to normalize background contribution. Figure~\ref{fig:cms-deepAK8-arch}
-describes the architecture of ``DeepAK8'' tagging.
+origin of a fatjet. Figure~\ref{fig:cms-deepAK8-arch}
+describes the architecture of ``DeepAK8'' tagging. These taggers are trained on particle level information
+from \gls{PF}, and provide multi class tagging probabilities.
+Since deep taggers utilize deep neutral network with particle level
+information their classification power is higher than N-subjetiness,
+and are worth the study for future analysis.
+%In addition to
+%there are version of these taggers is also which is de-correlated from the mass of jet,
+%this is important for analysis including this dissertation where we utilize
+%mass regions of fatjet to normalize background contribution.
 
 \begin{figure}[!ht]
   \centering
@@ -312,13 +316,92 @@ and they have very small mass, the missing transverse momentum is then
 equivalent to \gls{MET}, which is most often used term in physics analysis.
 
 \section{
-  \textbf{TBD} Monte Carlo Simulation
+  Monte Carlo (MC) Simulation
  }
 
-\subsection{
-  \textbf{TBD} Generators
-}
+In the proton-proton collision data collected by the \gls{CMS} detector,
+the only thing that is possible is reconstructed final state of the underlying
+process. Now to do the measurement on the process of interest,
+we need to quantify how much is the signal i.e.~process of interest
+and how much is the background i.e.~processes with same final state and
+similar kinematics. \gls{MC} simulations exactly serves that
+purpose to generate underlying processes that can help in
+modeling of signal and background process and compare it against the collision
+data.
+
+Main tools and framework
+used at \gls{CMS} for generating \gls{MC} events
+are described in this section.
 
 \subsection{
-  \textbf{TBD} Hadronization
+  Generators
 }
+
+There are two components to the event generator,
+\gls{PDF} which and matrix element.
+\gls{PDF} encodes the probability of finding a patron
+with given fraction of energy at given proton momentum,
+and since in proton-proton collision it's the quarks and gluon
+inside proton which are colliding, which \gls{PDF} set
+an important ingredient. Matrix element encodes
+the theoretical cross-section of the process. This process
+is known as \textit{hard process}.
+
+Our signal \textit{ZVjj} is a pure \gls{EW} process generated
+at \gls{LO} with \MGvATNLO{} and \MADSPIN{}~\cite{madgraph,madspin}.
+At \gls{LO} this process has six \gls{EW} vertices, and this
+zero \texttt{QCD} vertices, this generation is done
+in two steps with both vector boson generated on shell
+with \MADGRAPH{} and decayed to leptons and quarks via \MADSPIN{},
+for example \textit{ZZ} process, the syntax used is,
+
+\begin{align*}
+   & \texttt{\$ madgraph >}                      \\
+   & \texttt{generate p p > z z j j QED=4 QCD=0} \\
+   & \texttt{\$ madspin >}                       \\
+   & \texttt{decay z > l+ l-}                    \\
+   & \texttt{decay z > j j}                      \\
+\end{align*}
+
+where \texttt{p} and \texttt{j} are defined as collection of quarks of gluons,
+\texttt{z} is the on-shell \textit{Z} boson, and \texttt{l+}, \texttt{l-}
+are the leptons consisting of electrons, muons and taus. The syntax
+indicates \texttt{QED=4 QCD=0} implies that there are four \gls{EW}
+vertices, since we are first generating \textit{Z} on-shell, and zero
+\texttt{QCD} vertices, the last two \gls{EW} vertices comes from
+decay of \textit{Z} bosons to fermions.
+
+\subsection{
+  Parton Shower and Hadronization
+}
+
+After events are generated with hard process,
+they go through the process of parton shower and hadronization
+to simulated QCD bremsstrahlung radiation
+and make final state hadrons to preserve overall color charge of an event.
+This is done because quarks and gluons coming from hard process scattering
+cannot stay free and have high energy to produce quark-antiquark
+pair or radiate gluons, and further makes new partons.
+The parton shower simulates this process until parton
+have reached low energy of the order of 1 \GeV{}.
+
+After all the partons are showered, they go through the process of
+hadronization to produce final state hadrons.
+Hadronization is done using the models that are tuned on experimental data,
+and the most models used for \gls{MC} in standard model physics at \gls{CMS}
+are based on Lund string model in \PYTHIA{} framework~\cite{pythia}.
+Most showers are usually collimated and they appear
+as jets in the final state, but sometimes a highly energetic gluon
+can radiate a high energy gluon which will eventually
+make a new jet, it can be either \gls{ISR} during the hard process,
+or \gls{FSR} during the parton shower.
+This increases jets multiplicity of an event,
+since we have four jets in our final state this step is important for
+accurate modeling of our background processes.
+
+\gls{CMS} made use of following two tunes in the \PYTHIA{} for hadronization:
+
+\begin{itemize}
+  \item \texttt{TuneCUETP8M1}: Used for 2016 \glspl{MC} samples.
+  \item \texttt{TuneCP5}: Used for 2017 and 2018 \glspl{MC} samples.
+\end{itemize}

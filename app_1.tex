@@ -1,5 +1,33 @@
 \chapter{
-  Machine Learning
+  Analysis Code
  }
 
-Write about \gls{ML}, \gls{MVA}, \gls{BDT}, etc.
+
+Analysis code used for the analysis is hosted on
+Github (\url{https://github.com}) platform.
+
+\begin{itemize}
+  \item Custom NanoAOD production from MiniAOD
+        to include missing \gls{PDF} weights.
+
+        \url{https://github.com/singh-ramanpreet/VBS-customNanoAODProduction/}
+
+  \item ``NanoSkim'': Intermediate skimming step for the analysis
+        phase space with minimal selection to save time,
+        when run it again during analysis development.
+
+        \url{https://github.com/singh-ramanpreet/VVjjSemileptonic-NanoSkim}
+
+  \item ``Selection'': This repo contains the code for main event
+        selection of this analysis, it also calculates and embed scale factors
+        for various objects.
+
+        \url{https://github.com/singh-ramanpreet/VVjjSemileptonic-Selection}
+
+  \item ``Analysis'': This repo contains code \gls{MVA} training,
+        \gls{MVA} inference and embedding, making Data/MC histograms,
+        making datacards for the statistical analysis with \texttt{CombineLimit}.
+
+        \url{https://github.com/singh-ramanpreet/VVjjSemileptonic-Analysis}
+
+\end{itemize}

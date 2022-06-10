@@ -122,7 +122,7 @@ The \gls{DY} + Jets are generated at \gls{LO} with \MADGRAPH{}5+\PYTHIA{}8
 in bins of HT i.e.
 scalar sum of all the jets \( p_{T} \) in the event, to have more statistics
 for higher HT bins. Top-quark background process are generated at \gls{NNLO},
-s-channel is generated with \MADGRAPH{}\_\MCATNLO{}5+\PYTHIA{}8 and others
+s-channel is generated with \MGvATNLO+\PYTHIA{}8 and others
 t-channel, tW, t\=t are generated with \POWHEG{}+\PYTHIA{}8.
 The complete list of Table~\ref{tab:mc-list-1},~\ref{tab:mc-list-2},~\ref{tab:mc-list-3} contains
 the list of Signal and Background MC samples used for modeling in this analysis.
@@ -285,19 +285,117 @@ with following selections for muon and electron channels:
         \( |\eta| > 1.479 \) and less than \( 0.0588 \) otherwise,
         for 2017 and 2018 years, electrons passing ``mvaFall17V2Iso\_WP90'' and ``pfRelIso03\_all''
         less than \( 0.06 \) is required.
+  \item \textbf{\textit{Z} Candidate}: After lepton selection, events with
+        \textit{Z} candidates with mass in range \( [76, 106] \GeV{} \) are selected.
 \end{itemize}
 
-After lepton selection, Z candidates kinematics are calculated using \( p_T \), \( \eta \),
-\( \phi \), mass of the leptons and events with Z mass in range \( [76, 106] \GeV{} \)
-are kept.
-
-
+\subsection{
+  VBS Tagged Jets and \textit{V} Jet Candidate
+}
+After selecting leptons and constructing \textit{Z} candidate, first we look
+for \textit{V} as a ``FatJet'' (merged jet, AK8) candidate with \( p_T \) of 200 \GeV{},
+within \( |\eta| < 2.4 \) and in softdrop mass range of [40, 150] \GeV{}.
+Then all FatJets isolation with selected leptons are checked with \( \Delta R = 0.8 \)
+and then N-subjetiness \( \tau_{21} < 0.45 \) cut is applied.
+Finally a FatJet with mass nearest to the average mass of \textit{W} and \textit{Z}
+is selected.
 
 \begin{itemize}
-  \item VBS Tagged Jets
-  \item V Jet Candidate
+  \item \textbf{Boosted}: Now after above described selection,
+        if we have a FatJet as a candidate for \textit{V} then the event is
+        categorized as ``boosted''.
+  \item \textbf{VBS Jets}: Now whether the event is a boosted event or not,
+        narrow jets (AK4) are considered to be tagged as VBS jets,
+        this is done by first cleaning jets by applying tight ``JetID'',
+        \( p_T > 30 \), \( |\eta| < 2.4 \),
+        and checking isolation against selected leptons with \(\Delta R = 0.4\),
+        selected FatJet (if any) with \( \Delta R = 0.8 \)
+        and other jets with \(\Delta R = 0.4\).
+        Then all the combinations of jets are checked as a pair,
+        to find the pair with highest invariant mass with minimum of 500 \GeV{},
+        and the jets forming that pair are tagged as VBS jets.
+        If no such pair is found, the event is not selected.
+  \item \textbf{Resolved}: If there is no boosted event but there
+        is a of VBS tagged jets, then from rest of jet collection a pair
+        is searched with invariant mass in range of [40, 150] \GeV{} and
+        nearest to the average mass of \textit{W} and \textit{Z}.
+        Jets from selected pair are then labelled as \textit{V} jet candidates
+        and event is categorized as ``resolved''.
 \end{itemize}
 
+\section{
+  Control and Signal Region
+ }
+
+To model our background as accurate as possible,
+the selected events are divided into two regions based usually
+a observed property of the selected objects.
+
+For this analysis, the mass window of \textit{V} is selected
+to define the region boundaries and two regions are defined as:
+
+\begin{itemize}
+  \item \textbf{Signal Region}: \( 65 < M_{V} < 105 \) \GeV{},
+        it's an 20 \GeV{} window around the mass of \textit{V}. This is a
+        narrow mass window, and we expect cleaner signal in this region.
+  \item \textbf{Control Region}: \( 40 < M_{V} < 65 \) and \( 105 < M_{V} < 150 \) \GeV{},
+        in these mass sidebands around signal region are rich
+        in background. This region is dominant in \gls{DY} plus jets
+        events and will be used to model and normalize this background process.
+\end{itemize}
+
+\subsection{
+  DY+Jets Normalization
+}
+
+To normalize and model our main background \gls{MC} DY+Jets,
+we extract scale factors from bins of variables
+in control region and applied to both control and signal region.
+For boosted category of all years 2016, 2017, 2018
+and resolved in 2016 1D bins of \( p_T \) of \textit{Z} were used, and
+for resoled in 2016 and 2017 2D bins of \( p_T \) of \textit{Z} and VBS trailing
+jet were used. The Table lists the normalization
+factors extracted in 1D bin of \( p_T \) of \textit{Z} and
+Figure
+
+\begin{table}
+  \caption{Normalization factors from 1D bin of \( p_T \) of \textit{Z}}
+  \centering
+  \begin{tabular}{lcccccccc}
+    \toprule
+                           & \multicolumn{2}{c}{Resolved} & \multicolumn{6}{c}{Boosted}                                                                                                   \\
+    \cmidrule(lr){2-9}
+    \textit{Z} \(p_T\) bin & \multicolumn{2}{c}{2016}     & \multicolumn{2}{c}{2016}    & \multicolumn{2}{c}{2017} & \multicolumn{2}{c}{2018}                                             \\
+    \midrule
+                           & \( e \)                      & \( \mu \)                   & \( e \)                  & \( \mu \)                & \( e \) & \( \mu \) & \( e \) & \( \mu \) \\
+    \cmidrule(lr){2-9}\relax
+    [0, 80]                & 1.11                         & 1.19                        & 1.03                     & 1.09                     & 1.02    & 0.92      & 0.86    & 1.01      \\\relax
+    [80, 160]              & 1.07                         & 1.12                        & 1.03                     & 1.00                     & 0.84    & 0.83      & 0.86    & 0.81      \\\relax
+    [160, 240]             & 1.14                         & 1.13                        & 0.88                     & 1.04                     & 0.80    & 0.82      & 0.75    & 0.68      \\\relax
+    [240, 320]             & 0.93                         & 1.14                        & 1.15                     & 0.83                     & 0.93    & 0.99      & 0.73    & 0.76      \\\relax
+    [320, 400]             & 1.07                         & 1.08                        & 0.82                     & 0.73                     & 0.85    & 1.23      & 0.70    & 0.76      \\\relax
+    [400, 480]             & 1.02                         & 1.06                        & 0.70                     & 0.62                     & 0.84    & 0.91      & 0.67    & 0.67      \\\relax
+    [480, inf]             & 0.84                         & 0.81                        & 0.56                     & 0.40                     & 0.76    & 0.45      & 0.64    & 0.68      \\
+    \bottomrule
+  \end{tabular}\label{tab:norm-factors}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{analysis_plots/dyjet_norm_2d/cr_vjets_e_sf_from_2017_zjj.pdf}
+  \includegraphics[width=0.45\textwidth]{analysis_plots/dyjet_norm_2d/cr_vjets_mu_sf_from_2017_zjj.pdf}\\
+  \includegraphics[width=0.45\textwidth]{analysis_plots/dyjet_norm_2d/cr_vjets_e_sf_from_2018_zjj.pdf}
+  \includegraphics[width=0.45\textwidth]{analysis_plots/dyjet_norm_2d/cr_vjets_mu_sf_from_2018_zjj.pdf}
+  \caption[Normalization factors from 1D bin of \( p_T \) of \textit{Z}
+    and VBS trailing jet]%
+  {Normalization factors from 1D bin of \( p_T \) of \textit{Z}
+    and VBS trailing jet. Top to Bottom: 2017 and 2018 resolved.
+    Left to Right: electron and muon channel.}%
+  \label{fig:norm-factors-2d}
+\end{figure}
+
+
+\clearpage
 \subsection{
   Boosted ZV DY+Jets Control Region
 }
@@ -691,21 +789,8 @@ The under and over-fitting of trained model is checked by \gls{K-S} test
 and \gls{ROC} curves comparison between training and testing datasets.
 If the tests are not acceptable, then the training is redone with adjusted parameters.
 The Figure~\ref{fig:vbs-training-score} show \gls{MVA} score and \gls{ROC} curves
-of the BDT models. Models final metrics are listed in Table~\ref{tab:training-score}.
-
-\begin{table}[!ht]
-  \centering
-  \caption{Models Metrics}
-  \begin{tabular}{lc}%
-    \toprule
-    Channel  & AUC (\%) \\
-    \midrule
-    Boosted  & 78       \\
-    \midrule
-    Resolved & 79       \\
-    \bottomrule
-  \end{tabular}\label{tab:training-score}
-\end{table}
+of the BDT models. Boosted trained model \gls{MVA} has 78 \% and resolved
+has 79 \% of \gls{AUC}.
 
 \begin{figure}[!ht]
   \centering
@@ -749,7 +834,7 @@ of the BDT models. Models final metrics are listed in Table~\ref{tab:training-sc
   Measurement
  }
 
-About \textsc{CombineLimit}\xspace used for calculating significance.
+About \texttt{CombineLimit} used for calculating significance.
 
 \subsection{
   Statistical and Systematic Uncertainties
@@ -766,10 +851,10 @@ About \textsc{CombineLimit}\xspace used for calculating significance.
     \toprule
     Channel  & 2016 & 2017 & 2018 & Combined \\
     \midrule
-    Boosted  & 0.66 & 0.68 & 0.88 & 1.29     \\
-    Resolved & 0.51 & 0.46 & 0.62 & 0.92     \\
+    Boosted  & 0.64 & 0.66 & 0.95 & 1.33     \\
+    Resolved & 0.40 & 0.37 & 0.56 & 0.78     \\
     \midrule
-    Combined &      &      &      & 1.59     \\
+    Combined &      &      &      & 1.52     \\
     \bottomrule
   \end{tabular}\label{tab:vbs-significance}
 \end{table}
@@ -801,6 +886,15 @@ About \textsc{CombineLimit}\xspace used for calculating significance.
   {Impact Plots}%
   \label{fig:vbs-impact-plots-page3}
 \end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth,page=4]{analysis_plots/impact_plots/impacts_datacard_run2_z.pdf}
+  \caption[Impact Plots]%
+  {Impact Plots}%
+  \label{fig:vbs-impact-plots-page4}
+\end{figure}
+
 
 \clearpage
 \subsection{

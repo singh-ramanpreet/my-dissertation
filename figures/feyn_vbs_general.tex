@@ -1,0 +1,18 @@
+\documentclass[tikz]{standalone}
+\usepackage[com pat=1.1.0]{tikz-feynman}
+\begin{document}
+\begin{tikzpicture}
+    \begin{feynman}
+        \vertex [blob] (o1) {};
+        \vertex [above left=of o1] (a) {\(V\)};
+        \vertex [above right=of o1] (b) {\(V\)};
+        \vertex [below right=of o1] (c) {\(V\)};
+        \vertex [below left=of o1] (d) {\(V\)};
+
+        \diagram* {
+        (a) -- [boson] (o1) -- [boson] (b),
+        (c) -- [boson] (o1) -- [boson] (d),
+        };
+    \end{feynman}
+\end{tikzpicture}
+\end{document}
