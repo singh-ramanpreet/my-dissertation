@@ -3,8 +3,8 @@
  }\label{ch_cms}
 
 The physics analysis is carried out using \gls{CMS} experiment at
-\gls{CERN} \gls{LHC} accelerator. This chapter provides overview of \gls{LHC}
-and detail of CMS experiment and its sub-detectors for particle tracking
+\gls{CERN} \gls{LHC} accelerator. This chapter provides overview of the \gls{LHC}
+and details of the CMS experiment and its sub-detectors for particle tracking
 and calorimetry.
 
 \section{
@@ -14,11 +14,11 @@ and calorimetry.
 The \gls{LHC} is the largest accelerator located at
 \gls{CERN} in Geneva, Switzerland.
 The main \gls{LHC} ring is 27\km{} in circumference
-and around 50 to 175\m{} underground.
+and 50 to 175\m{} underground.
 The \gls{LHC} is built to collide protons at 14\TeV{} center-of-mass energy,
 LHC delivered proton-proton collisions at 7 and 8\TeV{}
-during run-1 (2010--2012), and at 13\TeV{} center-of-mass energy during
-run-2 (2015--2018)
+during run1 (2010--2012), and at 13\TeV{} center-of-mass energy during
+run2 (2015--2018)
 ~\cite{Evans:2008}.
 
 The Figure~\ref{fig:lhc} describes \gls{CERN} accelerator complex.
@@ -29,12 +29,12 @@ Then the booster increases energy of protons to 1.4\GeV{} and
 feeds it to the \gls{PS} which further increases energy to 25\GeV{}
 and starts bunching them together with bunches 25\nanoseconds{} apart.
 Then the proton bunches are passed through \gls{SPS} which increases energy
-to 450\GeV{} and finally sent to main \gls{LHC} clockwise and counterclockwise
+to 450\GeV{} and bunches are finally sent to main \gls{LHC} clockwise and counterclockwise
 rings where they are accelerated to final energy required which is 6.5\TeV{}
 for both bunches going clockwise and counterclockwise
 to obtain collisions at 13\TeV{} center-of-mass energy.
 
-The proton-proton collisions occurs at four different location where two
+The proton-proton collisions occurs at four different locations where two
 general purpose detectors \gls{CMS} and \gls{ATLAS}, and
 two specific purpose detector \gls{ALICE} and \gls{LHCb} are located.
 
@@ -61,7 +61,7 @@ and \(L\) is the luminosity of the \gls{LHC}.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.45\textwidth]{figures/int_lumi_pp_run2.pdf}
+  \includegraphics[width=0.60\textwidth]{figures/int_lumi_pp_run2.pdf}
   \caption[Integrated delivered and recorded luminosity
     for 2015--2018 proton-proton collisions]%
   {Integrated delivered and recorded luminosity
@@ -69,30 +69,17 @@ and \(L\) is the luminosity of the \gls{LHC}.
   \label{fig:int-lumi}
 \end{figure}
 
-Integrated luminosity delivered and recorded by \gls{CMS} during run-2 operation
+Integrated luminosity delivered and recorded by \gls{CMS} during run2 operation
 in shown in Figure~\ref{fig:int-lumi}.
-For run-2 standard physics analysis luminosity recorded during
-2016--2018 is considered, and only runs certified as ``golden'' by \gls{CMS}
+For run2 standard physics analysis luminosity recorded during
+2016--2018 years is considered, and only runs certified as ``golden'' by \gls{CMS}
 Luminosity \gls{POG} for analysis are used, the runs
 are certified ``golden'' if all the subdetector, triggers and
 physics objects perform as expected. The total
-integrated luminosity for run-2
-standard physics is 137.19\fbinv{}
-and listed separately for years in Table~\ref{tab:years-lumi}
+integrated luminosity for run2
+standard physics is 137.19\fbinv{} (35.92\fbinv{} during 2016, 41.53\fbinv{}
+during 2017, and 59.74\fbinv{} during 2018 period)
 ~\cite{CMS-PAS-LUM-17-001,CMS-PAS-LUM-17-004,CMS-PAS-LUM-18-002}.
-
-\begin{table}[!ht]
-  \centering
-  \caption[Standard physics integrated luminosity for run-2]%
-  {Standard physics luminosity for run-2}
-  \begin{tabular}{cccc}
-    \toprule
-    2016          & 2017          & 2018          & run-2          \\ \midrule
-    35.92\fbinv{} & 41.53\fbinv{} & 59.74\fbinv{} & 137.19\fbinv{} \\
-    \bottomrule
-  \end{tabular}%
-  \label{tab:years-lumi}
-\end{table}
 
 \section{
   The CMS Detector
@@ -100,13 +87,13 @@ and listed separately for years in Table~\ref{tab:years-lumi}
 
 The \gls{CMS} detector is a general purpose detector.
 A cutaway view of the detector is shown in Figure~\ref{fig:cms-cutaway}.
-The detector is cylindrical with dimensions 21 meters long, and 15 meters
+The detector is cylindrical with dimensions: 21 meters long, and 15 meters
 in diameter, and the whole detector weighs about 14000 tonnes.
 The detector is built in slices with central region called ``barrel'',
 and two closing end sides called ``endcap''.
 A superconducting solenoid generates magnetic field of 3.8\Tesla{} inside
 and 2\Tesla{} outside, and to contain the magnetic field outside of solenoid
-and support structure of the detector massive steel yokes are used.
+and support structure of the detector, massive steel yokes are used.
 
 \begin{figure}[!ht]
   \centering
@@ -116,16 +103,17 @@ and support structure of the detector massive steel yokes are used.
   \label{fig:cms-cutaway}
 \end{figure}
 
-The slice view of \gls{CMS} in Figure~\ref{fig:cms-slice}
-shows how different particles leave signature in \gls{CMS} detector.
-Neutral particles such photons, neutrinos, and hadrons will leave no track
-in \gls{ST}, and are identified by only energy deposited or missing energy.
-Electrons are identified from the track in \gls{ST} and energy deposit
-in \gls{ECAL}, hadrons are heavier and they pass through \gls{ECAL}
-and deposit their energy completely in \gls{HCAL}, leaving only small fraction
-of energy in \gls{ECAL}.
-Since muons are \gls{MIP}, they pass through whole detector with very small
-fraction of energy deposit in \gls{ECAL} and \gls{HCAL}.
+The slice view of the \gls{CMS} detector in Figure~\ref{fig:cms-slice}
+shows how different particles leave signature in various sub-detectors.
+Neutral particles such as photons, neutrinos, and neutral hadrons will leave no track
+in the \gls{ST}, and are identified only by the energy deposited
+in the calorimeters or the missing energy in an event.
+Electrons are identified from the track in the \gls{ST} and energy deposit
+in the \gls{ECAL}, and since hadrons are heavier and they pass through the \gls{ECAL}
+and deposit their energy completely in the \gls{HCAL}, leaving only small fraction
+of energy in the \gls{ECAL}.
+Since muons are \glspl{MIP}, they pass through whole detector with very small
+fraction of the energy deposited in the \gls{ECAL} and \gls{HCAL}.
 
 This section describes the subsystems of \gls{CMS} detector.
 For detailed technical description refer to~\cite{CMS-JINST-S08004}.
@@ -142,10 +130,10 @@ For detailed technical description refer to~\cite{CMS-JINST-S08004}.
   The CMS Coordinate System
 }\label{ch_cms:cms-coordinate}
 
-CMS uses \gls{IP} of collisions as origin to define right-handed
+CMS uses \gls{IP} of the collisions as origin to define the right-handed
 coordinate system. The \( z \)-axis is along the beamline,
 the \( x \)-axis points toward the center of the \gls{LHC},
-and the \( y \)-axis points upwards, toward Earth's surface.
+and the \( y \)-axis points upwards toward the Earth's surface.
 The transverse plane \( x - y \) is used as to calculate
 most commonly used quantities like transverse momentum \( p_{T} \)
 and energy \( E_{T} \).
@@ -169,8 +157,8 @@ and sometimes in terms of rapidity \( y \) as,
 
 Particle kinematics can be completely described in terms of
 \( p_{T} \), \( \eta \), \( \phi \), and \( E_{T} \) or mass.
-The distance between the two particles \( \Delta R \) in \( \eta - \phi \) plane
-is described as,
+The distance between the two particles in \( \eta - \phi \) plane
+is described as \( \Delta R \),
 %
 \begin{equation}
   \Delta R = \sqrt{ {(\Delta \eta)}^{2} + {(\Delta \phi)}^{2} }
@@ -231,7 +219,7 @@ pixel detector and 10 million in strip detector.
 The pixel detector was upgraded in 2017 and the comparison of layers before
 and after the upgrade is shown in Figure~\ref{fig:cms-pixel}. It is made up of
 four barrel layers and three endcaps, with nearest barrel layer being 3\cm{}
-away from beamline for precise measurement of \gls{IP}.
+away from the beamline for precise measurement of the \gls{IP}.
 Because of the large number of pixel channels, the readout is done by \glspl{ASIC}.
 
 \begin{figure}[!ht]
@@ -251,7 +239,7 @@ Because of the large number of pixel channels, the readout is done by \glspl{ASI
   \label{fig:cms-pixel}
 \end{figure}
 
-The outermost part of \gls{ST} detector is made of silicon strips. It allows large
+The outermost part of \gls{ST} detector is made up of silicon strips. It allows large
 coverage by reducing number of readout channels. It has 10 layers in barrel region
 and 12 discs in endcap region. For better signal-to-noise ratio and radiation
 tolerance both pixel and strip operates at -20\,\de\text{C}\xspace.
@@ -395,11 +383,12 @@ The \glspl{CSC} are based on same principle as \glspl{DT},
 and are made of multi-wire proportional chambers consisting of
 6 anode planes interleaved with 7 cathode planes. They have time resolution
 smaller than 5\nanoseconds. The \glspl{CSC} are used in endcap region,
-where radiation hardness is required, and non uniform magnetic field does neutrinos
+where radiation hardness is required, and non uniform magnetic field does not
 effects the the measurement.
 
-The \glspl{RPC} are made up of two high resistive parallel
-plates, with oppositely charged plates and gas volume between them.
+The \glspl{RPC} are made up of two oppositely charged high resistive parallel
+plates with gas\footnote{mixture of 96.2\% \( C_{2}H_{2}F_{4} \), 3.5\% Iso-\( C_{4}H_{10} \),
+0.3\% \( S{F}_{6} \)} volume between them.
 When a charged particles passes through it and ionizes the gas, it creates
 an avalanche and charge is collected by metallic readout strips.
 \glspl{RPC} have poor position resolution but fast readout of the order of 1\nanoseconds,
@@ -429,7 +418,7 @@ the detector in underground cavern for fast transfer of data.
 The \gls{HLT} further reduces the data rate from 100\,\text{kHz}\xspace to
 about 1\,\text{kHz}\xspace using a computer farm with nearly 26000 cores.
 \gls{HLT} uses all the available information from the event to make
-decision in about 300m\seconds. \gls{HLT} is modular by design
+decision in about 300 ms. \gls{HLT} is modular by design
 to allow the use of information from different systems to construct
 multiple paths called \gls{HLT} paths, for example the single muon \gls{HLT}
 path will save event with at least one muon passing the selection criteria

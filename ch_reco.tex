@@ -4,7 +4,7 @@
 
 The proton-proton collision at \gls{LHC} produces shower of particles, before
 the event information can be easily used in an analysis, the data collected goes
-through iterative process of reconstruct particles produced in collision.
+through iterative process of reconstructing particles produced in the collision.
 \gls{CMS} uses \gls{PF} algorithm to reconstruct 4-vectors of muons, electrons,
 photons, hadrons, jets and missing transverse momentum~\cite{cms-particle-flow-2017}.
 
@@ -19,9 +19,10 @@ candidates and \gls{MC} event generators used in this analysis.
   Track Reconstruction and Calorimeter Clustering
  }\label{ch_reco:track-calo}
 
-For complete particle reconstruction two main ingredients are tracks left by particle
-in the detector, and energy deposit in calorimeter. This section describes track reconstruction
-from the hits in Tracker and Muon Detector, and energy deposit measurement from
+For complete particle reconstruction two main ingredients are the track left by particle
+in the detector and energy deposit in calorimeter.
+This section describes track reconstruction
+from the hits in the tracker and muon detector, and energy deposit measurement from
 calorimeter clustering.
 
 Track reconstruction requires reconstructed hits, and seed generation which are
@@ -35,7 +36,7 @@ to avoid bias, and truncated at each layer to prevent exponential increase
 in number of candidates. Then finally the track is fitted to compute momentum
 and vertex information.
 
-The main purpose of calorimeter clustering is to determine position and
+The main purpose of the calorimeter clustering is to determine position and
 energy deposit of the particle. A cluster in a calorimeter is a local group of
 energy deposits that are spatially consistent with a electromagnetic
 or hadronic shower. First the topological
@@ -48,9 +49,9 @@ iteration until all the neighbors are added, in case when we have more than one 
 in a cluster, the energy from neighbors is shared, the fraction of energy shared
 depends on the energy and position of the cluster, after the first
 iteration of calculation of the energy and position the
-process is repeated with new values of cluster's energy and
-position until either the maximum iteration is reached or cluster's energy and position
-values are converged.
+process is repeated with new values of clusters energy and
+positions until either the maximum iteration is reached or clusters energy and positions
+values have converged.
 
 \section{
   Reconstructed Particles
@@ -110,17 +111,22 @@ The prompt muons are the ones coming from decay of H, W, Z bosons and \( \tau \)
 and have small impact parameter from \gls{PV}, have hits in both tracker
 and muon detector, and are typically well isolated.
 
+Muon identification for loose and tight muons
+follows \gls{CMS} Muon Physics Object Group
+recommendation and are defined in Reference~\cite{cms-muon-id}.
+
 In addition to muons from collision events, there can be cosmic muons from pion decay in
-upper atmosphere. Cosmic muons are generally not in-time with collision and far from
+upper atmosphere. Cosmic muons are easily
+rejected since generally they are not in-time with collision, and are far from
 interaction points.
 
 \subsection{
   Electrons and Photons
 }
 
-Since there is large amount of material in tracker, electrons often emit bremsstrahlung
+Since there is large amount of material in the tracker, electrons often emit bremsstrahlung
 photons when passing through tracker volume,
-and photons can further decay to \( e^- e^+ \) pair which complicates the
+and energetic photons can decay to \( e^- e^+ \) pair which complicates the
 tracking algorithm. The energy deposit of such electrons
 emitting bremsstrahlung will have large spread in \( \phi \) direction because
 the magnetic field will bend electrons in \( \phi \) whereas photons are unaffected.
@@ -144,7 +150,7 @@ can be found in Reference~\cite{cms-egamma-id}.
 
 \subsection{
   Hadrons and Jets
-}
+}\label{ch_reco:jets}
 
 Quarks and gluons produced in a collision event are not detected directly,
 because of color confinement, they go through fragmentation and
@@ -154,8 +160,8 @@ one or more tracks, if the track association fails the cluster is reconstructed 
 neutral hadron.
 
 Jet in \gls{CMS} are reconstructed using \FASTJET{} package~\cite{fastjet-manual},
-which takes input of all \gls{PF} candidates and associated tracks. The clustering
-basically combines 4-vectors of particles iteratively and stop when distance between
+which takes input of all \gls{PF} candidates and the associated tracks. The clustering
+basically combines 4-vectors of the particles iteratively and stop when distance between
 two particles (\( d_{ij} \)) is higher than stopping distance (\( d_{iB} \)).
 
 \( d_{ij} \) and \( d_{iB} \) are defined as,
@@ -172,7 +178,7 @@ where \( p \) is the parameter for different clustering algorithms, \( R \) is t
 cone size, and
 \( \Delta R_{ij} \) is distance between two particles in iteration.
 
-Anti-\( k_T \) (AK) is the most use jet algorithm in physics analysis, this corresponds to
+Anti-\( k_T \) (AK) is the most use jet algorithm in physics analyses, this corresponds to
 \( p = -1\), this means the hard particles will be clustered first in this clustering
 algorithm.
 The cone size used for standard jets (AK4) is \( R = 0.4 \), and for large jets (AK8) often called
@@ -189,6 +195,19 @@ The main limitation of \gls{CHS} is that it only removes charged \gls{PU} contri
 for larger jets it can be issue, since it is clustering larger number of particles
 and can have significant contribution from neutral hadrons, for this reason \gls{PUPPI}
 technique is used for AK8 jets.
+
+Jet energy correction are applied to the reconstructed
+jets to correct for \gls{JES} differences in \gls{MC} and data events.
+Three levels of corrections are applied,
+first correction that is is basically for removal of pileup and electronic noise
+are applied to both \gls{MC} and data events, then
+second correction applied only to \gls{MC} events
+is to correct for jet response as a function of \( p_T \) and
+\( \eta \) to the particle level jet response, third
+correction applied only to collision data
+are derived from the differences in \gls{JES} in \gls{MC}, these
+correction are derived using \( \gamma \) + jets, \textit{Z} + jets, and dijet
+\gls{MC} events~\cite{CMS-DP-2020-019}.
 
 To improve the jet selection and reject jets originating purely from \gls{PU}
 two methods are used in this dissertation, jet identification based on
@@ -240,7 +259,7 @@ and \( \tau_{32} \) with 3-prongs (t-quark) substructure against QCD jets.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=\textwidth]{figures/CMS_JME_18_002_Figure_003.pdf}
+  \includegraphics[width=0.9\textwidth]{figures/CMS_JME_18_002_Figure_003.pdf}
   \caption[Comparison of \( \tau_{21} \) and \( \tau_{32} \) shapes for signal and background in AK8 jets]%
   {Comparison of \( \tau_{21} \) and \( \tau_{32} \) shapes for signal and background in AK8 jets.
     The left is \( \tau_{21} \) distribution showing discrimination W/Z/H jets
@@ -263,7 +282,7 @@ and are worth the study for future analysis.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.9\textwidth]{figures/CMS_JME_18_002_Figure_009.pdf}
+  \includegraphics[width=0.7\textwidth]{figures/CMS_JME_18_002_Figure_009.pdf}
   \caption[The network architecture of DeepAK8]%
   {The network architecture of DeepAK8~\cite{cms-jme-deep-tagger}}%
   \label{fig:cms-deepAK8-arch}

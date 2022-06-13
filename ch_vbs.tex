@@ -5,21 +5,25 @@
 As discussed in Section~\ref{ch_intro:vbs} this analysis targets
 \gls{VBS} of ZV with two jets in final state. The goal of the analysis
 is to reduce contribution from background processes as much as possible
-without loosing much of signal, and measure signal strength and significance.
+without losing much of signal, and measure signal strength and significance.
 
 Since Z decays leptonically and V is decaying hadronically,
 the phase-space of this analysis can be either
-\( l^+ l^- jjjj \) or \( l^+ l^- J jj\), where \( l \) are leptons,
+\( l^+ l^- jjjj \) or \( l^+ l^- J jj\), where \( l \) are leptons (electrons
+or muons),
 \( j \) are narrow jets and \( J \) is a boosted (wider) jet.
 The phase-space is divided into two broad regions signal and controlled,
 signal region is constructed based on theory such that it is mostly signal process
-and controlled region is basically orthogonal to the signal region
+and control region is basically orthogonal to the signal region
 where we expect contributions mostly from background processes.
+The main purpose of control region
+in this analysis is to
+provide normalization factors the dominant background.
 
 The analysis is performed ``blind'' to avoid intrinsic bias
 i.e.\ until the analysis procedure is finalized, the collision data is only used
-in controlled regions. Once the analysis technique is optimized using \gls{MC}
-samples and validated against collision data in controlled regions. Once the
+in control regions. Once the analysis technique is optimized using \gls{MC}
+samples and validated against collision data in control regions. Once the
 analysis technique is satisfactory and approved by \gls{CMS} Physics Group
 then the results are ``un-blinded'' i.e.\ measurements are done
 using collision data in signal region.
@@ -62,45 +66,46 @@ in triggers across different years. The Table~\ref{tab:hlt-paths} contains the l
 \begin{table}[!ht]
   \centering
   \caption{Trigger paths used to select events in CMS collision data}
-  \begin{tabular}{cll}%
-    \toprule
-    Dataset & Year                  & HLT Path                                          \\
-    \midrule
-    \multirow{4}{*}{Single Muon}
-            & \multirow{2}{*}{2016} & \url{HLT_IsoMu24}                                 \\
-            &                       & \url{HLT_IsoTkMu24}                               \\
-    \cmidrule(lr){2-3}
-            & \multirow{1}{*}{2017} & \url{HLT_IsoMu27}                                 \\
-    \cmidrule(lr){2-3}
-            & \multirow{1}{*}{2018} & \url{HLT_IsoMu24}                                 \\
-    \midrule
-    \multirow{4}{*}{Single Electron}
-            & \multirow{2}{*}{2016} & \url{HLT_Ele27_WPTight_Gsf}                       \\
-            &                       & \url{HLT_Ele25_eta2p1_WPTight_Gsf}                \\
-    \cmidrule(lr){2-3}
-            & \multirow{1}{*}{2017} & \url{HLT_Ele35_WPTight_Gsf}                       \\
-    \cmidrule(lr){2-3}
-            & \multirow{1}{*}{2018} & \url{HLT_Ele32_WPTight_Gsf}                       \\
-    \midrule
-    \multirow{6}{*}{Double Muon}
-            & \multirow{3}{*}{2016} & \url{HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ}         \\
-            &                       & \url{HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ}       \\
-            &                       & \url{HLT_TkMu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ}     \\
-    \cmidrule(lr){2-3}
-            & \multirow{2}{*}{2017} & \url{HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass8}   \\
-            &                       & \url{HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8} \\
-    \cmidrule(lr){2-3}
-            & \multirow{1}{*}{2018} & \url{HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8} \\
-    \midrule
-    \multirow{4}{*}{Double Electron}
-            & \multirow{2}{*}{2016} & \url{HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ}   \\
-            &                       & \url{HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL}      \\
-    \cmidrule(lr){2-3}
-            & \multirow{1}{*}{2017} & \url{HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL}      \\
-    \cmidrule(lr){2-3}
-            & \multirow{1}{*}{2018} & \url{HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL}      \\
-    \bottomrule
-  \end{tabular}\label{tab:hlt-paths}
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{clll}%
+      \toprule
+      Dataset & Year                  & HLT Path                                          & \( p_T \) Threshold \\
+      \midrule
+      \multirow{4}{*}{Single Muon}
+              & \multirow{2}{*}{2016} & \url{HLT_IsoMu24}                                 & 24 \GeV{}           \\
+              &                       & \url{HLT_IsoTkMu24}                               & 24 \GeV{}           \\
+      \cmidrule(lr){2-4}
+              & \multirow{1}{*}{2017} & \url{HLT_IsoMu27}                                 & 27 \GeV{}           \\
+      \cmidrule(lr){2-4}
+              & \multirow{1}{*}{2018} & \url{HLT_IsoMu24}                                 & 24 \GeV{}           \\
+      \midrule
+      \multirow{4}{*}{Single Electron}
+              & \multirow{2}{*}{2016} & \url{HLT_Ele27_WPTight_Gsf}                       & 27 \GeV{}           \\
+              &                       & \url{HLT_Ele25_eta2p1_WPTight_Gsf}                & 25 \GeV{}           \\
+      \cmidrule(lr){2-4}
+              & \multirow{1}{*}{2017} & \url{HLT_Ele35_WPTight_Gsf}                       & 35 \GeV{}           \\
+      \cmidrule(lr){2-4}
+              & \multirow{1}{*}{2018} & \url{HLT_Ele32_WPTight_Gsf}                       & 32 \GeV{}           \\
+      \midrule
+      \multirow{6}{*}{Double Muon}
+              & \multirow{3}{*}{2016} & \url{HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ}         & 17, 8 \GeV{}        \\
+              &                       & \url{HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ}       & 17, 8 \GeV{}        \\
+              &                       & \url{HLT_TkMu17_TrkIsoVVL_TkMu8_TrkIsoVVL_DZ}     & 17, 8 \GeV{}        \\
+      \cmidrule(lr){2-4}
+              & \multirow{2}{*}{2017} & \url{HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass8}   & 17, 8 \GeV{}        \\
+              &                       & \url{HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8} & 17, 8 \GeV{}        \\
+      \cmidrule(lr){2-4}
+              & \multirow{1}{*}{2018} & \url{HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8} & 17, 8  \GeV{}       \\
+      \midrule
+      \multirow{4}{*}{Double Electron}
+              & \multirow{2}{*}{2016} & \url{HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ}   & 23, 12 \GeV{}       \\
+              &                       & \url{HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL}      & 23, 12 \GeV{}       \\
+      \cmidrule(lr){2-4}
+              & \multirow{1}{*}{2017} & \url{HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL}      & 23, 12 \GeV{}       \\
+      \cmidrule(lr){2-4}
+              & \multirow{1}{*}{2018} & \url{HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL}      & 23, 12 \GeV{}       \\
+      \bottomrule
+    \end{tabular}}\label{tab:hlt-paths}
 \end{table}
 
 \subsection{
@@ -278,12 +283,12 @@ with following selections for muon and electron channels:
         tight ID, ``pfRelIso04'' less than 0.15 and impact parameters \( d_{xy} < 0.01, d_z < 0.1 \),
         for all the years.
   \item \textbf{Electrons}: Electrons with \( p_T < 10 \GeV{} \), \( |\eta| > 2.5 \),
-        and failing ``cutBased\_HLTPreSel'' 2016 or loose ``cutBased'' for 2017, 2018~\cite{cms-egamma-id}.
+        and failing loose cut based~\cite{cms-egamma-id}.
         Tight selection of electron is different 2016 and 2017--2018,
         with \( p_T > 20 \GeV \) same for all years, for 2016 year electrons with
-        passing ``mvaSpring16GP\_WP90'' and, ``pfRelIso03\_all'' less than \( 0.0571 \) for
+        passing ``mvaSpring16GP\_WP90'' (MVA based ID, 90\% efficiency) and, ``pfRelIso03\_all'' less than \( 0.0571 \) for
         \( |\eta| > 1.479 \) and less than \( 0.0588 \) otherwise,
-        for 2017 and 2018 years, electrons passing ``mvaFall17V2Iso\_WP90'' and ``pfRelIso03\_all''
+        for 2017 and 2018 years, electrons passing ``mvaFall17V2Iso\_WP90'' (MVA based ID + Isolation, 90\% efficiency) and ``pfRelIso03\_all''
         less than \( 0.06 \) is required.
   \item \textbf{\textit{Z} Candidate}: After lepton selection, events with
         \textit{Z} candidates with mass in range \( [76, 106] \GeV{} \) are selected.
@@ -345,18 +350,55 @@ to define the region boundaries and two regions are defined as:
 \end{itemize}
 
 \subsection{
+  MC Scale Factors
+}
+
+Whenever we apply some cut on object properties on data and \gls{MC},
+the efficiency of the cut can be different for the data than it's for
+\gls{MC}. To account for this difference in efficiency
+of data and \gls{MC}, scale factors are calculated and applied
+to \gls{MC}. The scale factors are usually function of
+\( p_T \) and \( \eta \) of the object being used for selection.
+These scale factors are then applied as event weight i.e.
+they are multiplied to the cross-section weight factor applied to the \gls{MC}
+events.
+Following are the scale factors used in this analysis:
+
+\begin{itemize}
+  \item \textbf{Pile-Up Reweighting}: During run2 data taking at \gls{CMS}
+        the average number of pileup in an event can varied from 5 to 100,
+        and to have same shape for this variable in \gls{MC}, reweighting
+        scale derived from the difference is applied to \gls{MC}.
+  \item \textbf{Trigger Efficiency}: Since the \gls{HLT} trigger paths are defined
+        by the \( p_T \) threshold of the object in the trigger,
+        they can have different efficiency in data and \gls{MC}.
+  \item \textbf{Lepton Identification/Isolation}:
+        Scale factors to account for tight selection
+        of electrons and muons are
+        derived from ``tag and probe'' method and applied to the \gls{MC}.
+  \item \textbf{Tight Pile-Up Jet Identification}:
+        Since to reduce jets coming from pileup vertex, tight Pile-Up Identification
+        is applied to the \gls{VBS} tagged jets, a scale factor
+        is calculated for both \gls{VBS} jets and their product
+        is applied to \gls{MC}.
+  \item \textbf{L1 Prefire Correction}: L1 Trigger prefiring
+        scale factors recommended by \gls{CMS} for 2016 and 2017 year datasets~\cite{cms-l1t}.
+\end{itemize}
+
+\subsection{
   DY+Jets Normalization
 }
 
 To normalize and model our main background \gls{MC} DY+Jets,
 we extract scale factors from bins of variables
-in control region and applied to both control and signal region.
+in control region and apply it to both control and signal region.
 For boosted category of all years 2016, 2017, 2018
 and resolved in 2016 1D bins of \( p_T \) of \textit{Z} were used, and
 for resoled in 2016 and 2017 2D bins of \( p_T \) of \textit{Z} and VBS trailing
 jet were used. The Table lists the normalization
 factors extracted in 1D bin of \( p_T \) of \textit{Z} and
-Figure
+Figure~\ref{fig:norm-factors-2d} lists factors extracted
+in 2D bin of \( p_T \) of \textit{Z} and VBS trailing jet.
 
 \begin{table}
   \caption{Normalization factors from 1D bin of \( p_T \) of \textit{Z}}
@@ -396,9 +438,28 @@ Figure
 
 
 \clearpage
+\section{Kinematics Distributions}
+
+To understand how the kinematics of various final state objects and
+derived candidate behave, they are studied in the control
+region by stacking up all the background histograms and
+overlaying them with the data as points.
+Signal \gls{MC} is also overlayed on the histograms, since it's small,
+for visualization purposes it's scaled with a factor shown in
+the legends of the plots.
+
+The kinematics plots also include a ratio plot of data and total background
+\gls{MC}, and uncertainties in histograms of \gls{MC} are shown as shaded region
+which includes total statistical bin error and
+theoretical renormalization error on DY+Jets and VBS\_QCD \gls{MC} samples.
+
+Section~\ref{ch_vbs:boosted-plots} and~\ref{ch_vbs:resolved-plots}
+shows kinematics plots in control region for boosted and
+resolved ZV category respectively.
+
 \subsection{
   Boosted ZV DY+Jets Control Region
-}
+}\label{ch_vbs:boosted-plots}
 
 \begin{figure}[!ht]
   \centering
@@ -522,7 +583,7 @@ Figure
 \clearpage
 \subsection{
   Resolved ZV DY+Jets Control Region
-}
+}\label{ch_vbs:resolved-plots}
 
 \begin{figure}[!ht]
   \centering
@@ -675,8 +736,43 @@ for final measurement.
   Algorithm: Gradient Boosted Decision Tree
 }
 
-Tools used \gls{TMVA} part of \ROOT{} package (FIXME reference). FIXME some details mathematical
-details about BDT and specifically gradient BDT\@.
+\gls{BDT} is a \gls{MVA} algorithm with \textit{boosting}
+applied sequentially in series on the \gls{MVA} algorithm, and
+then taking weighted average to get the improved result,
+in this case the boosted\footnote{Not to be confused analysis category
+  Boosted ZV, they are unrelated.} \gls{MVA} algorithm is \textit{decision tree}.
+A decision tree is a binary tree,
+example shown in Figure~\ref{fig:bdt-dt}, at each node
+a decision is made using the input variables which
+provides the best separation\footnote{defined as,
+  \( \frac{1}{2}
+  \int \frac{{(\hat{y}_{S}(y) - \hat{y}_{B}(y))}^2}{\hat{y}_{S}(y) + \hat{y}_{B}(y)} dy \),
+  where \(\hat{y}_{S}\) and \(\hat{y}_B\) are probability density functions
+  of signal and background.}
+at that node, this process is repeated
+until events at a node reaches below certain threshold, and then depending
+on the majority
+of the events in the final node, the node is classified
+as signal or background.
+
+There are several boosting algorithm, the one discussed here and
+used in this analysis is gradient boost.
+Gradient boost is an additive model of adding decision trees
+in series and with each tree in sequence training on
+the adjusted dataset to minimize the \textit{loss-function} with
+respect to the previous model. This improves
+the model sequentially and it is faster since only a subset of
+training dataset is used in subsequent decision trees.
+\gls{TMVA} part of \ROOT{} package used in this analysis
+for implementing gradient boosted \gls{BDT} has implementation
+of binomial log-likelihood loss function for classification~\cite{tmva-manual}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/bdt_pics.pdf}
+  \caption[Decision Tree]{Decision Tree.}%
+  \label{fig:bdt-dt}
+\end{figure}
 
 \subsection{
   Training and Results
@@ -687,14 +783,22 @@ the training was done using combined MC from all years 2016, 2017, 2018
 to benefit from larger statistics see Table~\ref{tab:training-stats},
 signal MC ``VBS\_EWK'' was trained against background ``DY + Jets LO'' since
 that is dominant background in our analysis.
-Each models \gls{BDT} hyper-parameters were tunned to prevent under and over-fitting,
-and input variables used were also pruned in order of importance and keeping
-model metrics \gls{AUC} of \gls{ROC} relatively unaffected. Distribution of final input variables
+Each models \gls{BDT} hyper-parameters were tuned to prevent under and over-fitting,
+this is done by comparing the signal efficiency
+training and testing datasets at three different background rates (1\%, 10\% and 30\%),
+if the difference is not more than 5\%, then the hyper-parameters are
+acceptable.
+
+Input variables used in each model training were pruned i.e.
+input variables which does not impact much on the
+performance of the model in terms of \gls{AUC} of the \gls{ROC}
+were dropped from the final training models.
+Distribution of final input variables
 used in training are shown in Figure~\ref{fig:vbs-training-input-zv} and Figure~\ref{fig:vbs-training-input-zjj}.
 
 \begin{table}[!ht]
   \centering
-  \caption{Training and Testing Statistics}
+  \caption{Combined dataset Training and Testing Statistics in Signal Region}
   \begin{tabular}{lllll}%
     \toprule
              &            & \multicolumn{3}{c}{Number of Events}                    \\
@@ -712,35 +816,119 @@ used in training are shown in Figure~\ref{fig:vbs-training-input-zv} and Figure~
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_dibos_m.pdf}
-  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf_m.pdf} \\
-  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf1_AK4_qgid.pdf}
-  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf2_AK4_qgid.pdf} \\
-  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_zeppLep_deta.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_dibos_m.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2016_zv/cr_vjets_l/vv_m.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2017_zv/cr_vjets_l/vv_m.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2018_zv/cr_vjets_l/vv_m.pdf}\\
+  \includegraphics[width=0.23\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf_m.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2016_zv/cr_vjets_l/vbf_jj_m.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2017_zv/cr_vjets_l/vbf_jj_m.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2018_zv/cr_vjets_l/vbf_jj_m.pdf}\\
+  \includegraphics[width=0.23\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf1_AK4_qgid.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2016_zv/cr_vjets_l/vbf_j1_qgid.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2017_zv/cr_vjets_l/vbf_j1_qgid.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2018_zv/cr_vjets_l/vbf_j1_qgid.pdf}\\
+  \includegraphics[width=0.23\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf2_AK4_qgid.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2016_zv/cr_vjets_l/vbf_j2_qgid.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2017_zv/cr_vjets_l/vbf_j2_qgid.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2018_zv/cr_vjets_l/vbf_j2_qgid.pdf}\\
+  \includegraphics[width=0.23\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_zeppLep_deta.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2016_zv/cr_vjets_l/zeppenfeld_lep_deta.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2017_zv/cr_vjets_l/zeppenfeld_lep_deta.pdf}
+  \includegraphics[width=0.23\textwidth]{analysis_plots/2018_zv/cr_vjets_l/zeppenfeld_lep_deta.pdf}\\
   \caption[Inputs Variables for training Boosted ZV BDT Classifier]%
-  {Inputs Variables (combined for Run2 MC) for training Boosted ZV BDT Classifier.
-    From top: Diboson invariant mass, VBS tagged jets invariant mass, \gls{QGL} of leading
+  {Inputs Variables for training Boosted ZV BDT Classifier.
+    Left to Right: Shape comparison of signal and background (combined dataset), control region
+    kinematic distribution in 2016, 2017 and 2018 dataset.
+    Top to Bottom: Diboson invariant mass, VBS tagged jets invariant mass, \gls{QGL} of leading
     VBS tagged jet, \gls{QGL} of trailing VBS tagged jet, Zeppenfeld variable of leptonic boson.}%
   \label{fig:vbs-training-input-zv}
 \end{figure}
 
+
+%\begin{figure}[!ht]
+%  \centering
+%  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_dibos_m.pdf}
+%  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf_m.pdf} \\
+%  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf1_AK4_qgid.pdf}
+%  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf2_AK4_qgid.pdf} \\
+%  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_zeppLep_deta.pdf}
+%  \caption[Inputs Variables for training Boosted ZV BDT Classifier]%
+%  {Inputs Variables (combined for Run2 MC) for training Boosted ZV BDT Classifier.
+%    From top: Diboson invariant mass, VBS tagged jets invariant mass, \gls{QGL} of leading
+%    VBS tagged jet, \gls{QGL} of trailing VBS tagged jet, Zeppenfeld variable of leptonic boson.}%
+%  \label{fig:vbs-training-input-zv}
+%\end{figure}
+
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_dibos_m.pdf}
-  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf_m.pdf} \\
-  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_ht_resolved.pdf}
-  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_lep2_eta.pdf} \\
-  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf1_AK4_qgid.pdf}
-  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf2_AK4_qgid.pdf}
-  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_zeppLep_deta.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_dibos_m.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2016_zjj/cr_vjets_l/vv_m.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2017_zjj/cr_vjets_l/vv_m.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2018_zjj/cr_vjets_l/vv_m.pdf} \\
+  \includegraphics[width=0.24\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf_m.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2016_zjj/cr_vjets_l/vbf_jj_m.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2017_zjj/cr_vjets_l/vbf_jj_m.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2018_zjj/cr_vjets_l/vbf_jj_m.pdf}\\
+  \includegraphics[width=0.24\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_ht_resolved.pdf}
+  \includegraphics[draft,width=0.24\textwidth]{fixme.pdf}
+  \includegraphics[draft,width=0.24\textwidth]{fixme.pdf}
+  \includegraphics[draft,width=0.24\textwidth]{fixme.pdf}\\
+  \includegraphics[width=0.24\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_lep2_eta.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2016_zjj/cr_vjets_l/lep2_eta.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2017_zjj/cr_vjets_l/lep2_eta.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2018_zjj/cr_vjets_l/lep2_eta.pdf}
   \caption[Inputs Variables for training Resolved ZV BDT Classifier]%
-  {Inputs Variables (combined for Run2 MC) for training Resolved ZV BDT Classifier.
-    From top: Diboson invariant mass, VBS tagged jets invariant mass,
-    HT\textsuperscript{*} (\( p_{T} \) sum of jets), trailing lepton \( \eta \),
-    \gls{QGL} of leading VBS tagged jet,
-    \gls{QGL} of trailing VBS tagged jet, Zeppenfeld variable of leptonic boson.}%
+  {Inputs Variables for training Resolved ZV BDT Classifier.
+    Left to Right: Shape comparison of signal and background (combined dataset), control region
+    kinematic distribution in 2016, 2017 and 2018 dataset.
+    Top to Bottom: Diboson invariant mass, VBS tagged jets invariant mass,
+    HT\textsuperscript{*} (\( p_{T} \) sum of jets), trailing lepton \( \eta \).}%
   \label{fig:vbs-training-input-zjj}
 \end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.24\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf1_AK4_qgid.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2016_zjj/cr_vjets_l/vbf_j1_qgid.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2017_zjj/cr_vjets_l/vbf_j1_qgid.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2018_zjj/cr_vjets_l/vbf_j1_qgid.pdf} \\
+  \includegraphics[width=0.24\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf2_AK4_qgid.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2016_zjj/cr_vjets_l/vbf_j2_qgid.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2017_zjj/cr_vjets_l/vbf_j2_qgid.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2018_zjj/cr_vjets_l/vbf_j2_qgid.pdf} \\
+  \includegraphics[width=0.24\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_zeppLep_deta.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2016_zjj/cr_vjets_l/zeppenfeld_lep_deta.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2017_zjj/cr_vjets_l/zeppenfeld_lep_deta.pdf}
+  \includegraphics[width=0.24\textwidth]{analysis_plots/2018_zjj/cr_vjets_l/zeppenfeld_lep_deta.pdf}
+  \caption[Inputs Variables for training Resolved ZV BDT Classifier]%
+  {Inputs Variables for training Resolved ZV BDT Classifier.
+    Left to Right: Shape comparison of signal and background (combined dataset), control region
+    kinematic distribution in 2016, 2017 and 2018 dataset.
+    Top to Bottom:\gls{QGL} of leading VBS tagged jet,
+    \gls{QGL} of trailing VBS tagged jet, Zeppenfeld variable of leptonic boson.}%
+  \label{fig:vbs-training-input-zjj-1}
+\end{figure}
+
+
+
+%\begin{figure}[!ht]
+%  \centering
+%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_dibos_m.pdf}
+%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf_m.pdf} \\
+%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_ht_resolved.pdf}
+%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_lep2_eta.pdf} \\
+%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf1_AK4_qgid.pdf}
+%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf2_AK4_qgid.pdf}
+%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_zeppLep_deta.pdf}
+%  \caption[Inputs Variables for training Resolved ZV BDT Classifier]%
+%  {Inputs Variables (combined for Run2 MC) for training Resolved ZV BDT Classifier.
+%    From top: Diboson invariant mass, VBS tagged jets invariant mass,
+%    HT\textsuperscript{*} (\( p_{T} \) sum of jets), trailing lepton \( \eta \),
+%    \gls{QGL} of leading VBS tagged jet,
+%    \gls{QGL} of trailing VBS tagged jet, Zeppenfeld variable of leptonic boson.}%
+%  \label{fig:vbs-training-input-zjj}
+%\end{figure}
 
 After training \gls{TMVA} \gls{BDT} evaluates input variables
 and ranks them in terms of importance and separation
@@ -788,9 +976,31 @@ and the correlation matrix of variable is show in Figure~\ref{fig:vbs-training-c
 The under and over-fitting of trained model is checked by \gls{K-S} test
 and \gls{ROC} curves comparison between training and testing datasets.
 If the tests are not acceptable, then the training is redone with adjusted parameters.
+The Table~\ref{tab:training-tmva-config} lists the final
+training configuration in the \gls{TMVA} framework for
+for boosted and resolved models.
 The Figure~\ref{fig:vbs-training-score} show \gls{MVA} score and \gls{ROC} curves
 of the BDT models. Boosted trained model \gls{MVA} has 78 \% and resolved
 has 79 \% of \gls{AUC}.
+
+\begin{table}[!ht]
+  \centering
+  \caption{TMVA configuration of trained models}
+  \begin{tabular}{lc}%
+    \toprule
+                            & Boosted and Resolved ZV \\
+    \midrule\relax
+    \verb|BoostType|        & \verb|Grad|             \\
+    \verb|NTrees|           & 800                     \\
+    \verb|MaxDepth|         & 3                       \\
+    \verb|MinNodeSize|      & 3\%                     \\
+    \verb|nCuts|            & 100                     \\
+    \verb|Shrinkage|        & 0.010                   \\
+    \verb|UseBaggedBoost|   & \verb|True|             \\
+    \verb|BaggedSampleFrac| & 0.6                     \\
+    \bottomrule
+  \end{tabular}\label{tab:training-tmva-config}
+\end{table}
 
 \begin{figure}[!ht]
   \centering
@@ -806,8 +1016,38 @@ has 79 \% of \gls{AUC}.
 
 \clearpage
 \subsection{
-  MVA Score inference in Signal Region
+  MVA Score Inference
 }
+
+Using the training models for boosted and resolved ZV, the \gls{MVA} score
+is inferred for the complete dataset of data and \gls{MC}.
+Then the binning of \gls{MVA} score is derived such that
+the signal yield is almost equal in all the bins in signal region.
+\gls{MVA} score distribution for control region with
+data is shown in Figure~\ref{fig:zv-cr-l-mva-score} and~\ref{fig:zjj-cr-l-mva-score},
+and blinded \gls{MVA} score for signal region
+is shown in Figure~\ref{fig:zv-sr-l-mva-score}
+and Figure~\ref{fig:zjj-cr-l-mva-score}.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.32\textwidth]{analysis_plots/2016_zv/cr_vjets_l/mva_score_zv_var2_log.pdf}
+  \includegraphics[width=0.32\textwidth]{analysis_plots/2017_zv/cr_vjets_l/mva_score_zv_var2_log.pdf}
+  \includegraphics[width=0.32\textwidth]{analysis_plots/2018_zv/cr_vjets_l/mva_score_zv_var2_log.pdf} \\
+  \caption[MVA Score in Control Region for Boosted ZV Channel]%
+  {MVA Score in Control Region for Boosted ZV Channel.}%
+  \label{fig:zv-cr-l-mva-score}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.32\textwidth]{analysis_plots/2016_zjj/cr_vjets_l/mva_score_zjj_var2_log.pdf}
+  \includegraphics[width=0.32\textwidth]{analysis_plots/2017_zjj/cr_vjets_l/mva_score_zjj_var2_log.pdf}
+  \includegraphics[width=0.32\textwidth]{analysis_plots/2018_zjj/cr_vjets_l/mva_score_zjj_var2_log.pdf} \\
+  \caption[MVA Score in Control Region for Resolved ZV Channel]%
+  {MVA Score in Control Region for Resolved ZV Channel.}%
+  \label{fig:zjj-cr-l-mva-score}
+\end{figure}
 
 \begin{figure}[!ht]
   \centering
@@ -829,24 +1069,122 @@ has 79 \% of \gls{AUC}.
   \label{fig:zjj-sr-l-mva-score}
 \end{figure}
 
-\clearpage
+
 \section{
   Measurement
  }
 
-About \texttt{CombineLimit} used for calculating significance.
+To measure our signal,
+the \gls{MVA} score in signal region is used as the observable to
+calculate expected significance and study impact of systematics
+using impact plots.
+
+\verb|CombineLimit| is command line tool which takes input
+configuration as plain text file and can perform
+standard high energy physics statistical analysis. \verb|CombineLimit|
+is built on \verb|RooFit| and \verb|RooStats| packages which
+are also part of ROOT package~\cite{Verkerke2003,Moneta2010}.
 
 \subsection{
   Statistical and Systematic Uncertainties
 }
 
+\gls{MC} statistical uncertainties for the bins with more than 10 events
+are taken into account using ``Barlow–-Beeston lite'' method,
+and using Poisson \gls{p.d.f.} otherwise~\cite{Barlow1993}.
+
+Systematic uncertainties
+for correction of multiplicative type such as integrated luminosity, efficiency, etc.,
+are treated with most common log-normal distribution model,
+i.e.~multiplying with factor \( \kappa \) is equivalent to
+\( +1 \sigma \) variation, and
+multiplying with \( 1/\kappa \) to get \( -1\sigma \) variation. For relative
+uncertainty \(\Delta x / x \), the \( \kappa \) can be set as \( 1 + \Delta x / x \).
+For example, 2.5\% uncertainty with log-normal model on integrated luminosity,
+\( \kappa \) will be 1.025. Uncertainties set this way
+are referred to as ``flat'' systematic uncertainties.
+
+For systematic uncertainties such as \gls{JES}, observable
+used in the measurement is also calculated with \gls{JES} \( +1\sigma \)
+and \( -1\sigma \) scale factor separately, and the variation up and down
+value are directly taken from the histogram bin, these type of uncertainties
+are referred to as ``shape'' systematic uncertainties.
+
+Following are the systematic uncertainties used in this analysis,
+
+\begin{itemize}
+  \item \textbf{Integrated Luminosity}: 2.5\%
+        uncertainty on all 2016, 2017, and 2018
+        year datasets.
+  \item \textbf{L1 Prefire Correction}: Shape systematics for 2016 and 2017
+        year.
+  \item \textbf{Lepton Reconstruction and Identification Efficiency}: 1\%
+        uncertainty for electron and muons.
+  \item \textbf{Lepton momentum scale}: Shape systematics for electron
+        and muon momentum scale, shapes are obtained by varying \(p_T\) 3\% up and
+        down in selection.
+  \item \textbf{\gls{JES} }: Shape systematics
+        obtained by varying jet \( p_T \) with \gls{JES} up and down,
+        for all the years dataset. The uncertainties
+        are treated separately depending on the source~\cite{CMS-DP-2020-019}.
+  \item \textbf{PU Reweighting}: Shape systematics
+        obtained by varying normalization up and down for all the years dataset.
+  \item \textbf{Renormalization and factorization scale}:
+        Renormalization and factorization scale uncertainties
+        are calculated for VBS\_EWK and VBS\_QCD \gls{MC} datasets,
+        as prescribed by \gls{CMS} the renormalization and factorization
+        scale factor are varied up and down by the factor of 2,
+        and the envelope of the all the variation is taken as \( 1\sigma \)
+        shape systematics.
+  \item \textbf{PDF systematics}: \gls{PDF} uncertainties
+        are obtained as uniform shape systematic by reweighting \gls{MC} events cross-section
+        with \gls{PDF} set.
+\end{itemize}
+
 \subsection{
   Significance
 }
 
+Signal significance (\( Z \)) is
+the quantity used to report if there is excess of signal events (\( s \)) in
+presence of background events (\( b \)) by testing alternate (\( n = \mu s + b \)) hypothesis
+against null (\( n = b \)) hypothesis, where \( \mu \) is the signal strength.
+
+Signal significance (\( Z \)) in the asymptotic limit
+is calculated using profile likelihood ratio as the test statistics~\cite{Cowan2010},
+
+\begin{equation}
+  Z = \sqrt{q_0}
+\end{equation}
+
+\begin{equation}
+  q_{\mu} = - 2 \log \frac{L(data | \mu,\hat{\theta}_{\mu})}{L(data | \hat{\mu},\hat{\theta})},\quad 0 \le \mu \le \hat{\mu}
+\end{equation}
+
+where \( \hat{\mu} \) is the maximum likelihood estimate of \( \mu \),
+and \( \hat{\theta}_{\mu} \) are the nuisance parameters.
+
+As per \gls{LHC} statistical recommendation~\cite{CMS-NOTE-2011-005},
+likelihood \( L(data | \mu,\hat{\theta}_{\mu}) \)
+is constructed as,
+
+\begin{equation}
+  L(data | \mu,\hat{\theta}_{\mu}) = \text{Poisson}(data|\mu s(\hat{\theta}) + b(\hat{\theta})) \cdot \pi(\hat{\theta})
+\end{equation}
+
+where \( \pi(\hat{\theta}) \) is the \gls{p.d.f.} for nuisance parameter.
+
+For calculating expected significance for \( \mu = 1 \),
+the observed data is not used,
+instead \( n \) is set equal to total \gls{MC} events.
+The expected significance calculated for
+each category per year dataset, for combined dataset per
+category and for combined dataset and category is listed
+in Table~\ref{tab:vbs-significance}.
+
 \begin{table}[!ht]
   \centering
-  \caption{Significance}
+  \caption{Expected Signal Significance}
   \begin{tabular}{lllll}%
     \toprule
     Channel  & 2016 & 2017 & 2018 & Combined \\
@@ -863,6 +1201,18 @@ About \texttt{CombineLimit} used for calculating significance.
 \subsection{
   Impact Plots
 }
+
+Impact plots are way to visualize
+which nuisance parameter \( \theta \) have
+largest effect on parameter of interest \( \mu \) and
+measure correlation from the direction of \( +1 \sigma \) (correlated)
+and \( -1 \sigma \) (anti-correlated). Figure~\ref{fig:vbs-impact-plots-page1},
+~\ref{fig:vbs-impact-plots-page2} shows impacts
+for top 60 nuisance parameter, and
+Figure~\ref{fig:vbs-impact-plots-page3},
+~\ref{fig:vbs-impact-plots-page4} in the Appendix~\ref{app2:impact-plots}
+for the rest of nuisance parameter.
+
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=\textwidth,page=1]{analysis_plots/impact_plots/impacts_datacard_run2_z.pdf}
@@ -879,27 +1229,18 @@ About \texttt{CombineLimit} used for calculating significance.
   \label{fig:vbs-impact-plots-page2}
 \end{figure}
 
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=\textwidth,page=3]{analysis_plots/impact_plots/impacts_datacard_run2_z.pdf}
-  \caption[Impact Plots]%
-  {Impact Plots}%
-  \label{fig:vbs-impact-plots-page3}
-\end{figure}
-
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=\textwidth,page=4]{analysis_plots/impact_plots/impacts_datacard_run2_z.pdf}
-  \caption[Impact Plots]%
-  {Impact Plots}%
-  \label{fig:vbs-impact-plots-page4}
-\end{figure}
-
 
 \clearpage
 \subsection{
   Postfit Plots
 }
+
+Postfit distribution in signal region using Asimov dataset
+for Boosted ZV are shown in Figure~\ref{fig:zv-cr-l-mva-score}
+and for Resolved ZV are shown in Figure~\ref{fig:zjj-sr-l-mva-score-postfit}.
+\gls{MC} processes overall prefit and postfit (signal + background and background-only)
+values in control and signal region are listed in Table~\ref{tab:fit-values-zv}
+for Boosted ZV and in Table~\ref{tab:fit-values-zjj} for Resolved ZV category.
 
 \begin{figure}[!ht]
   \centering
@@ -920,3 +1261,91 @@ About \texttt{CombineLimit} used for calculating significance.
   {(Asimov Data) MVA Score postfit in Signal Region for Resolved ZV Channel. (Asimov Data)}%
   \label{fig:zjj-sr-l-mva-score-postfit}
 \end{figure}
+
+\begin{table}
+  \centering
+  \caption{Prefit and postfit yields of MC processes}
+  \begin{tabular}{lllll}
+    \toprule
+    Region & Process  & Pre-fit                  & S+B Fit                  & B-Only Fit               \\
+    \midrule
+    \multicolumn{5}{c}{Boosted ZV 2016}                                                                \\
+    \midrule
+    CR     & DY+Jets  & 379.258 \( \pm \) 21.758 & 365.946 \( \pm \) 21.633 & 371.954 \( \pm \) 19.224 \\
+    CR     & Top      & 32.874 \( \pm \) 2.048   & 33.083 \( \pm \) 1.893   & 33.133 \( \pm \) 2.033   \\
+    CR     & VBS\_EWK & 5.230 \( \pm \) 0.295    & 5.263 \( \pm \) 7.937    & 0.000 \( \pm \) 0.000    \\
+    CR     & VBS\_QCD & 38.659 \( \pm \) 2.269   & 38.903 \( \pm \) 2.098   & 38.964 \( \pm \) 2.229   \\
+    SR     & DY+Jets  & 414.424 \( \pm \) 47.960 & 401.166 \( \pm \) 33.571 & 409.919 \( \pm \) 35.398 \\
+    SR     & Top      & 37.557 \( \pm \) 8.904   & 38.063 \( \pm \) 7.913   & 38.377 \( \pm \) 8.120   \\
+    SR     & VBS\_EWK & 11.280 \( \pm \) 1.263   & 11.547 \( \pm \) 17.344  & 0.000 \( \pm \) 0.000    \\
+    SR     & VBS\_QCD & 73.244 \( \pm \) 6.401   & 74.917 \( \pm \) 6.040   & 75.819 \( \pm \) 5.618   \\
+    \midrule
+    \multicolumn{5}{c}{Boosted ZV 2017}                                                                \\
+    \midrule
+    CR     & DY+Jets  & 482.465 \( \pm \) 27.558 & 477.203 \( \pm \) 23.379 & 484.032 \( \pm \) 20.462 \\
+    CR     & Top      & 25.458 \( \pm \) 2.499   & 25.382 \( \pm \) 2.326   & 25.393 \( \pm \) 2.440   \\
+    CR     & VBS\_EWK & 5.584 \( \pm \) 0.315    & 5.598 \( \pm \) 8.314    & 0.000 \( \pm \) 0.000    \\
+    CR     & VBS\_QCD & 42.475 \( \pm \) 2.428   & 42.564 \( \pm \) 2.257   & 42.617 \( \pm \) 2.366   \\
+    SR     & DY+Jets  & 517.728 \( \pm \) 35.203 & 526.548 \( \pm \) 29.418 & 537.276 \( \pm \) 22.960 \\
+    SR     & Top      & 42.445 \( \pm \) 4.879   & 43.314 \( \pm \) 5.419   & 43.618 \( \pm \) 5.213   \\
+    SR     & VBS\_EWK & 13.635 \( \pm \) 1.288   & 13.958 \( \pm \) 20.084  & 0.000 \( \pm \) 0.000    \\
+    SR     & VBS\_QCD & 83.087 \( \pm \) 6.196   & 85.369 \( \pm \) 6.421   & 86.344 \( \pm \) 6.211   \\
+    \midrule
+    \multicolumn{5}{c}{Boosted ZV 2018}                                                                \\
+    \midrule
+    CR     & DY+Jets  & 704.184 \( \pm \) 37.672 & 657.159 \( \pm \) 29.757 & 668.863 \( \pm \) 27.491 \\
+    CR     & Top      & 47.431 \( \pm \) 2.598   & 48.020 \( \pm \) 2.506   & 48.115 \( \pm \) 2.524   \\
+    CR     & VBS\_EWK & 10.045 \( \pm \) 0.535   & 10.167 \( \pm \) 11.167  & 0.000 \( \pm \) 0.000    \\
+    CR     & VBS\_QCD & 68.708 \( \pm \) 3.720   & 69.558 \( \pm \) 3.569   & 69.698 \( \pm \) 3.631   \\
+    SR     & DY+Jets  & 746.410 \( \pm \) 54.277 & 691.760 \( \pm \) 33.952 & 710.128 \( \pm \) 25.912 \\
+    SR     & Top      & 64.774 \( \pm \) 5.066   & 65.157 \( \pm \) 4.307   & 65.832 \( \pm \) 4.241   \\
+    SR     & VBS\_EWK & 23.232 \( \pm \) 1.676   & 23.579 \( \pm \) 25.419  & 0.000 \( \pm \) 0.000    \\
+    SR     & VBS\_QCD & 131.658 \( \pm \) 9.406  & 133.540 \( \pm \) 9.249  & 135.256 \( \pm \) 8.750  \\
+    \bottomrule
+  \end{tabular}\label{tab:fit-values-zv}
+\end{table}
+
+
+\begin{table}
+  \centering
+  \caption{Prefit and postfit yields of MC processes}
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lllll}
+      \toprule
+      Region & Process  & Pre-fit                      & S+B Fit                     & B-Only Fit                  \\
+      \midrule
+      \multicolumn{5}{c}{Resolved ZV 2016}                                                                         \\
+      \midrule
+      CR     & DY+Jets  & 379.258 \( \pm \) 21.758     & 365.242 \( \pm \) 22.024    & 371.274 \( \pm \) 19.206    \\
+      CR     & Top      & 32.874 \( \pm \) 2.048       & 33.210 \( \pm \) 1.899      & 33.266 \( \pm \) 2.042      \\
+      CR     & VBS\_EWK & 5.230 \( \pm \) 0.295        & 5.282 \( \pm \) 8.611       & 0.000 \( \pm \) 0.000       \\
+      CR     & VBS\_QCD & 38.659 \( \pm \) 2.269       & 39.050 \( \pm \) 2.104      & 39.119 \( \pm \) 2.238      \\
+      SR     & DY+Jets  & 414.424 \( \pm \) 47.924     & 399.587 \( \pm \) 34.001    & 408.251 \( \pm \) 36.425    \\
+      SR     & Top      & 37.557 \( \pm \) 8.913       & 38.257 \( \pm \) 7.930      & 38.557 \( \pm \) 8.536      \\
+      SR     & VBS\_EWK & 11.280 \( \pm \) 1.314       & 11.617 \( \pm \) 18.849     & 0.000 \( \pm \) 0.000       \\
+      SR     & VBS\_QCD & 73.244 \( \pm \) 6.371       & 75.326 \( \pm \) 6.052      & 76.303 \( \pm \) 5.618      \\
+      \midrule
+      \multicolumn{5}{c}{Resolved ZV 2017}                                                                         \\
+      \midrule
+      CR     & DY+Jets  & 9269.820 \( \pm \) 528.262   & 8808.212 \( \pm \) 127.281  & 8822.983 \( \pm \) 115.454  \\
+      CR     & Top      & 732.264 \( \pm \) 41.867     & 758.852 \( \pm \) 42.171    & 760.721 \( \pm \) 42.469    \\
+      CR     & VBS\_EWK & 16.719 \( \pm \) 0.942       & 17.307 \( \pm \) 36.196     & 0.000 \( \pm \) 0.000       \\
+      CR     & VBS\_QCD & 212.000 \( \pm \) 11.956     & 219.481 \( \pm \) 12.029    & 220.020 \( \pm \) 12.016    \\
+      SR     & DY+Jets  & 10051.850 \( \pm \) 999.582  & 9597.739 \( \pm \) 594.433  & 9641.194 \( \pm \) 542.019  \\
+      SR     & Top      & 926.759 \( \pm \) 71.943     & 967.952 \( \pm \) 63.703    & 973.730 \( \pm \) 59.649    \\
+      SR     & VBS\_EWK & 51.194 \( \pm \) 3.726       & 52.461 \( \pm \) 107.649    & 0.000 \( \pm \) 0.000       \\
+      SR     & VBS\_QCD & 442.505 \( \pm \) 35.644     & 456.933 \( \pm \) 31.622    & 459.409 \( \pm \) 31.584    \\
+      \midrule
+      \multicolumn{5}{c}{Resolved ZV 2018}                                                                         \\
+      \midrule
+      CR     & DY+Jets  & 12231.940 \( \pm \) 654.622  & 11680.437 \( \pm \) 153.086 & 11701.037 \( \pm \) 155.683 \\
+      CR     & Top      & 1134.261 \( \pm \) 60.444    & 1264.976 \( \pm \) 68.334   & 1273.043 \( \pm \) 66.040   \\
+      CR     & VBS\_EWK & 27.689 \( \pm \) 1.476       & 30.878 \( \pm \) 48.320     & 0.000 \( \pm \) 0.000       \\
+      CR     & VBS\_QCD & 345.569 \( \pm \) 18.418     & 385.386 \( \pm \) 20.806    & 387.844 \( \pm \) 20.136    \\
+      SR     & DY+Jets  & 13006.154 \( \pm \) 1468.349 & 12740.173 \( \pm \) 609.156 & 12810.317 \( \pm \) 509.178 \\
+      SR     & Top      & 1393.580 \( \pm \) 126.941   & 1564.524 \( \pm \) 108.896  & 1579.267 \( \pm \) 95.428   \\
+      SR     & VBS\_EWK & 87.014 \( \pm \) 6.599       & 97.074 \( \pm \) 149.836    & 0.000 \( \pm \) 0.000       \\
+      SR     & VBS\_QCD & 712.871 \( \pm \) 66.603     & 817.870 \( \pm \) 59.088    & 827.619 \( \pm \) 51.458    \\
+      \bottomrule
+    \end{tabular}}\label{tab:fit-values-zjj}
+\end{table}

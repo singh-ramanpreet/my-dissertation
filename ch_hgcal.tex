@@ -30,7 +30,7 @@ for complete design see the \gls{TDR}~\cite{cms-hgcal-tdr}.
 
 As mentioned the \gls{HGCAL} will replace current endcap \gls{ECAL} and
 \gls{HCAL}, Figure~\ref{fig:cms-hgcal-quadrant-layout}
-show exactly where the new detector will pe placed. The right image in the
+shows exactly where the new detector will pe placed. The right image in the
 Figure~\ref{fig:cms-hgcal-quadrant-layout} shows side view (\( z-r \) plane)
 of the detector, starting from the left i.e.~innermost layers is
 \gls{CE-E} whose active layers are made of all silicon cells
@@ -39,6 +39,11 @@ majority of the detector in longitudinal length is \gls{CE-H}
 whose starting few active layers are also all silicon cells, and
 then its mixed with silicon cells in lower rings of the
 layer and the scintillator tiles (\( \approx 5-31 \cm{}^2\)) in the rest.
+Silicon is radiation hard material i.e.~the response of silicon cells
+will not degrade under high rate of radiation dose, but
+silicon is also expensive and for such high cell count in \gls{HGCAL}
+it significantly increase the budget of the project, for this
+reason scintillator tiles are used wherever radiation doses are low.
 Some of the main reasons for high cell count, lateral and longitudinal granularity
 are to preserve energy resolution after 3000 \fbinv{}, precision
 timing measurement of the showers to reject energy deposit from pileup, and
@@ -134,7 +139,7 @@ current with large gain of \( 10^5 \) to \( 10^6 \) electrons.
 connected in parallel, where each pixel is a avalanche photodiode (APD)
 combined with quenching resistor. \gls{SiPM} of active
 area \( 2\mm{}^2 \) with 15\micron{} pixel has approximately 9,000 pixels,
-commercially \gls{SiPM} are also known as \gls{MPPC}. Figure~\ref{fig:hgcal-sipm}
+commercially \gls{SiPM} are also known as \gls{MPPC}~\cite{mppc-13360}. Figure~\ref{fig:hgcal-sipm}
 shows \gls{SiPM} next to tip of a pen.
 
 \gls{SiPM} operates in reverse bias (Geiger Mode),
@@ -142,7 +147,7 @@ with voltage above breakdown \gls{OV}, with linear relationship
 between \gls{OV} and gain.
 In addition to low operating voltage (\(40-60\) V) the power
 consumption is also low, which increases with the number of pixel.
-For \gls{HGCAL} Hamamatsu S14160 is being considered with
+For \gls{HGCAL} Hamamatsu S14160~\cite{mppc-14160} is being considered with
 area 2, 4 and \(9\mm{}^2\). Larger area means large signal, but
 also means higher power consumption which can be significant given
 the granularity of the \gls{HGCAL}.
@@ -160,7 +165,7 @@ over \glspl{SiPM} with dimple centering on \gls{SiPM}'s active area.
 
 \subsection{
   Scintillator Tiles
-}
+}\label{ch_hgcal:scint-tiles}
 
 Scintillator tiles coupled directly with \gls{SiPM} alone can not provide
 sufficient \gls{SNR} to reject noise with certainty, additionally
@@ -173,7 +178,7 @@ and is the material chosen for wrapping scintillator tiles with this.
 As visible from Figure~\ref{fig:hgcal-layer-22} the number
 of individual tiles in each layer is already very high, and to wrap
 100--200 thousand tiles with \gls{ESR} is a very challenging task.
-At \gls{NICADD} we are building an automated wrapping machine to
+At \gls{NICADD} we are building an automated wrapping machine (Section~\ref{ch_hgcal:wrapping}) to
 wrap scintillator tiles with speed and repeatability.
 Figure~\ref{fig:hgcal-scintillator-tile} shows the
 R18--19 size scintillator tile, Figure~\ref{fig:hgcal-esr-wrapper}
@@ -207,6 +212,108 @@ is shown in Figure~\ref{fig:hgcal-scintillator-tile-wrapped}.
     Kapton sticker holding the flaps. Right: Bottom side with center hole
     over dimple.}%
   \label{fig:hgcal-scintillator-tile-wrapped}
+\end{figure}
+
+\clearpage
+\section{
+  Automated Wrapping of Scintillator Tiles
+ }\label{ch_hgcal:wrapping}
+
+As mentioned in Section~\ref{ch_hgcal:scint-tiles}, the number
+of wrapped scintillator tiles in \gls{ESR} required for the \gls{HGCAL}
+is very large, 100--200 thousand tiles. In addition to large number
+of tiles, the tiles will be of different sizes and repeatability
+in wrapped tile quality is required for reliable performance
+of the detector. Figure~\ref{fig:wrapper-overview-1} and~\ref{fig:wrapper-overview-2}
+shows the overview
+of automated wrapped being developed at \gls{NICADD}.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth,page=1]{figures/wrapper_machine_pics.pdf}
+  \caption[Automated scintillator tile wrapper overview]
+  {Automated scintillator tile wrapper overview. Shown in picture with labels are,
+    1--4: Actuator arms for folding the cut ESR flaps over the tiles,
+    5: Tile magazine and dispenser assembly, 6: \textit{z}-axis end-effector
+    with vacuum suction, 7: Kapton sticker dispenser.}%
+  \label{fig:wrapper-overview-1}
+\end{figure}
+
+The machine is built to provide motion in \textit{xyz}-axes
+and controlled by G-code programming language.
+The second main components of the wrapper are actuators and vacuum
+suction, actuator have arm that can extend and retract quickly with the
+pressurized air, both pressurized air and vacuum are controlled
+by solenoid switch which is programmed the help
+of programmable logic controller and can be used in G-code programs.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth,page=2]{figures/wrapper_machine_pics.pdf}
+  \caption[Tile folding station and ESR magazine]
+  {Tile folding station and ESR magazine. Shown in picture
+    with labels 1: tile folding station, and 2: ESR magazine.}%
+  \label{fig:wrapper-overview-2}
+\end{figure}
+
+The final wrapped tile as shown in Figure~\ref{fig:hgcal-scintillator-tile-wrapped}
+is done by the machine in following steps:
+
+\begin{itemize}
+  \item \textbf{ESR Pickup, and Placement}: \textit{z}-axis end-effector
+        picks up the cut \gls{ESR} using vacuum suction from the \gls{ESR} magazine,
+        and then places it precisely over the tile pocket in the folding station.
+        Placed \gls{ESR} over tile pocket is held into its place with
+        the help of vacuum suction, which is built into tile pocket
+        seat.
+  \item \textbf{Tile Dispenser, Pickup, and Placement}:
+        Tiles will be stacked in the magazine at the tile dispenser
+        location and an actuator arm will push out a tile
+        completely and held in place (right image in Figure~\ref{fig:wrapper-overview-3}) until \textit{z}-axis end-effector
+        makes contact and vacuum suction is turned on. Now,
+        the actuator arm is retracted and tile is
+        picked up and placed over \gls{ESR} at the folding station.
+  \item \textbf{ESR Flaps Folding}:
+        After \gls{ESR} and tile are placed, and since
+        they are held strongly in place with vacuum, the tile pocket
+        retracts with the help of actuator connected to it from the bottom.
+        At this stage tile is inside pocket and flushed, and \gls{ESR}
+        flaps are out and vertical.
+        Now the four actuator arms as shown in Figure~\ref{fig:wrapper-overview-4}
+        extends and closes \gls{ESR} flaps.
+  \item \textbf{Sticker Application}:
+        Now the folding actuator arms stay in place until sticker is
+        applied using \textit{z}-axis end-effector which
+        picks up the sticker from sticker dispenser (left image Figure~\ref{fig:wrapper-overview-3}) and applies it on
+        the center of the tile where all flaps corners meet.
+  \item \textbf{Wrapped Tile}:
+        Final step in wrapping is retracting folding actuator arms,
+        pushing out the tile and turning of the vacuum suction of tile pocket.
+        Now \textit{z}-axis end-effector picks up the wrapped tile and
+        drops into the collection basket.
+        Wrapped tile in Figure~\ref{fig:hgcal-scintillator-tile-wrapped}
+        is wrapped automatically with this machine.
+\end{itemize}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.49\textwidth,page=3]{figures/wrapper_machine_pics.pdf}
+  \includegraphics[width=0.49\textwidth,page=4]{figures/wrapper_machine_pics.pdf}
+  \caption[Sticker and tile dispenser.]
+  {Sticker and tile dispenser, Left: Sticker dispenser
+    with kapton tape roll. Right: Tile dispenser with tile magazine.}%
+  \label{fig:wrapper-overview-3}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.49\textwidth,page=6]{figures/wrapper_machine_pics.pdf}
+  \includegraphics[width=0.49\textwidth,page=7]{figures/wrapper_machine_pics.pdf}
+  \caption[Tile folding station]
+  {Tile folding station. Left: Flushed tile pocket at the center
+    and retracted actuator arms. Right: After all the
+    arms are extended during wrapping.}%
+  \label{fig:wrapper-overview-4}
 \end{figure}
 
 \clearpage
@@ -289,7 +396,7 @@ molded scintillator tiles wrapped in \gls{ESR} with \gls{SiPM}
 using \gls{FNAL} 120 \GeV{} testbeam facility. The scintillator tiles
 used in testbeam were of dimensions \( 30 \times 30 \mm{}^{2} \) square tiles,
 and \gls{SiPM} device used was Hamamatsu S13360--1350CS (\( 1.3 \times 1.3 \mm{}^{2} \))
-~\cite{testbeam-fnal-2020}.
+~\cite{mppc-13360,testbeam-fnal-2020}.
 
 The \gls{MIP} measured from testbeam are 35 \gls{PE} for cast scintillator tiles,
 and 25 \gls{PE} for injection molded with \gls{SiPM} operated at
@@ -360,11 +467,11 @@ and even with cast scintillator it is possible only when using
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.32\textwidth]{figures/hgcal/plot_zr/mold_mip_25_pdeC_34.9_40_sipmA_2.0_rad_4_sipmN_52_sipmAC_default_tileAC_default_S_N.pdf}
-  \includegraphics[width=0.32\textwidth]{figures/hgcal/plot_zr/mold_mip_25_pdeC_34.9_40_sipmA_4.0_rad_4_sipmN_52_sipmAC_default_tileAC_default_S_N.pdf}\\
-  \includegraphics[width=0.32\textwidth]{figures/hgcal/plot_zr/cast_mip_35_pdeC_34.9_40_sipmA_2.0_rad_4_sipmN_52_sipmAC_default_tileAC_default_S_N.pdf}
-  \includegraphics[width=0.32\textwidth]{figures/hgcal/plot_zr/cast_mip_35_pdeC_34.9_40_sipmA_4.0_rad_4_sipmN_52_sipmAC_default_tileAC_default_S_N.pdf}
-  \includegraphics[width=0.32\textwidth]{figures/hgcal/plot_zr/cast_mip_35_pdeC_34.9_40_sipmA_9.0_rad_4_sipmN_52_sipmAC_default_tileAC_default_S_N.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/hgcal/plot_zr/mold_mip_25_pdeC_34.9_40_sipmA_2.0_rad_4_sipmN_52_sipmAC_default_tileAC_default_S_N.pdf}\\
+  \includegraphics[width=0.45\textwidth]{figures/hgcal/plot_zr/mold_mip_25_pdeC_34.9_40_sipmA_4.0_rad_4_sipmN_52_sipmAC_default_tileAC_default_S_N.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/hgcal/plot_zr/cast_mip_35_pdeC_34.9_40_sipmA_2.0_rad_4_sipmN_52_sipmAC_default_tileAC_default_S_N.pdf}\\
+  \includegraphics[width=0.45\textwidth]{figures/hgcal/plot_zr/cast_mip_35_pdeC_34.9_40_sipmA_4.0_rad_4_sipmN_52_sipmAC_default_tileAC_default_S_N.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/hgcal/plot_zr/cast_mip_35_pdeC_34.9_40_sipmA_9.0_rad_4_sipmN_52_sipmAC_default_tileAC_default_S_N.pdf}
   \caption[Scintillator performance with various active area size
     of \gls{SiPM}]{Scintillator performance with various active area size
     of \gls{SiPM}. Top row from Left to Right: Injection Molded
