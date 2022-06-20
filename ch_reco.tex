@@ -5,7 +5,7 @@
 The proton-proton collision at \gls{LHC} produces shower of particles, before
 the event information can be easily used in an analysis, the data collected goes
 through iterative process of reconstructing particles produced in the collision.
-\gls{CMS} uses \gls{PF} algorithm to reconstruct 4-vectors of muons, electrons,
+\gls{CMS} uses a \gls{PF} algorithm to reconstruct 4-vectors of muons, electrons,
 photons, hadrons, jets and missing transverse momentum~\cite{cms-particle-flow-2017}.
 
 To analyze the data collected and compare it with theoretical model, events are
@@ -356,12 +356,12 @@ are described in this section.
   Generators
 }
 
-There are two components to the event generator,
-\gls{PDF} which and matrix element.
+There are three main components to the event generator,
+\gls{PDF}, matrix element and parton shower.
 \gls{PDF} encodes the probability of finding a patron
 with given fraction of energy at given proton momentum,
 and since in proton-proton collision it's the quarks and gluon
-inside proton which are colliding, which \gls{PDF} set
+inside proton which are colliding, \gls{PDF} set
 an important ingredient. Matrix element encodes
 the theoretical cross-section of the process. This process
 is known as \textit{hard process}.
@@ -418,9 +418,19 @@ This increases jets multiplicity of an event,
 since we have four jets in our final state this step is important for
 accurate modeling of our background processes.
 
-\gls{CMS} made use of following two tunes in the \PYTHIA{} for hadronization:
+\subsection{Tunes}
 
-\begin{itemize}
-  \item \texttt{TuneCUETP8M1}: Used for 2016 \glspl{MC} samples.
-  \item \texttt{TuneCP5}: Used for 2017 and 2018 \glspl{MC} samples.
-\end{itemize}
+In hadron-hadron collisions there are two additional interactions,
+\glspl{BBR} and \glspl{MPI}, they are modeled as \gls{UE}.
+\gls{BBR} is what left behind by incoming beam hadron and does
+not take part in \gls{ISR} or hard scattering, and these remnants
+need to be color connected with the rest of the event.
+The \glspl{MPI} are the additional multiple interaction that a parton
+can go through in the same hadron-hadron collision,
+these interactions can be hard or semi-hard.
+To model \gls{UE} properly in standard \gls{MC} event generator,
+a set of parameters (referred as ``tune'') are needed
+to be adjusted so that it provides better fit to the experiment data.
+\gls{CMS} made use of the tune \texttt{TuneCUETP8M1}~\cite{pythia8-tune-CUETP8M1}
+(2016 \glspl{MC} samples) and \texttt{TuneCP5}~\cite{pythia8-tune-cp5} (2017 and 2018 \glspl{MC} samples)
+in the \PYTHIA{} for modeling \gls{UE}.

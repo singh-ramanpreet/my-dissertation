@@ -50,18 +50,26 @@ two specific purpose detector \gls{ALICE} and \gls{LHCb} are located.
   Integrated Luminosity
 }\label{ch_cms:cms-lumi}
 
-The number of events generated in a collisions for a given process is,
+Luminosity is a measure of how many events can happen per unit area and per
+unit time for a collision or scattering process, and it is defined as,
 %
 \begin{equation}
-  N = L \sigma
+  L = \frac{1}{\sigma} \frac{dN}{dt}, \quad L_{\text{int}} = \int L dt
 \end{equation}
 
 where \(\sigma \) is cross-section of the process
-and \(L\) is the luminosity of the \gls{LHC}.
+and \(L\) is the instantaneous luminosity (\( \cm{}^{-2} \seconds^{-1} \)),
+and \( L_{\text{int}} \) is the integrated luminosity usually
+expressed in inverse units of cross-section (\pbinv{}, \fbinv{}, etc.).
+
+For proton-proton collision at \gls{LHC}
+the nominal instantaneous luminosity is of the order of \( 10^{34} \cm{}^{-2} \seconds^{-1}\),
+and integrated luminosity delivered and recorded by \gls{CMS} during run2 operation
+in shown in Figure~\ref{fig:int-lumi}.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.60\textwidth]{figures/int_lumi_pp_run2.pdf}
+  \includegraphics[width=0.70\textwidth]{figures/int_lumi_pp_run2.pdf}
   \caption[Integrated delivered and recorded luminosity
     for 2015--2018 proton-proton collisions]%
   {Integrated delivered and recorded luminosity
@@ -69,8 +77,6 @@ and \(L\) is the luminosity of the \gls{LHC}.
   \label{fig:int-lumi}
 \end{figure}
 
-Integrated luminosity delivered and recorded by \gls{CMS} during run2 operation
-in shown in Figure~\ref{fig:int-lumi}.
 For run2 standard physics analysis luminosity recorded during
 2016--2018 years is considered, and only runs certified as ``golden'' by \gls{CMS}
 Luminosity \gls{POG} for analysis are used, the runs
@@ -126,6 +132,7 @@ For detailed technical description refer to~\cite{CMS-JINST-S08004}.
   \label{fig:cms-slice}
 \end{figure}
 
+\clearpage{}
 \subsection{
   The CMS Coordinate System
 }\label{ch_cms:cms-coordinate}
@@ -336,7 +343,6 @@ make past the solenoid. HF extends the coverage
 to \(|\eta| = 5.0\) and is based Cherenkov radiation principle unlike
 other subsystems of \gls{HCAL}, and it uses quartz fiber
 as active material with steel absorbers.
-HF is used most commonly used by heavy ion analysis.
 
 \begin{figure}[!ht]
   \centering
@@ -396,7 +402,7 @@ which is fast compared to \glspl{DT}, this is the reason there are 1 or 2 \glspl
 attached to both \glspl{DT}, and \glspl{CSC}.
 
 \subsection{
-  Level 1 Trigger
+  Trigger
 }\label{ch_cms:L1T}
 
 Since proton-proton collisions happens every bunch crossing which is
