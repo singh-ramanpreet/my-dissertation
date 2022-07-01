@@ -3,18 +3,18 @@
  }\label{ch_vbs}
 
 As discussed in Section~\ref{ch_intro:vbs} this analysis targets
-\gls{VBS} in the \textit{ZV} channel accompanied with two high \( \eta \) jets in final state. The goal of the analysis
+\gls{VBS} in the \textit{ZV} channel accompanied with two jets at large \( \eta \) in final state. The goal of the analysis
 is to reduce contribution from background processes as much as possible
 without losing much of signal, and measure signal strength and significance.
 
-Since in our chosen topology \textit{Z} decays leptonically and V is decaying hadronically,
+Since in our chosen topology \textit{Z} decays leptonically and \textit{V} is decaying hadronically,
 the phase-space of this analysis can be either
 \( l^+ l^- jjjj \) or \( l^+ l^- J jj\), where \( l \) are leptons (electrons
 or muons),
 \( j \) are narrow jets and \( J \) is a boosted (wider) jet.
-The phase-space is divided into two broad regions signal and control.
-The signal region is constructed based on theory such that it is signal rich,
-and the control region is basically orthogonal to the signal region
+The phase-space is divided into two broad regions, signal and control.
+The signal region is constructed based on theory such that the signal is maximized,
+and the control region is orthogonal to the signal region
 where we expect contributions mostly from background processes.
 The main purpose of control region
 in this analysis is to
@@ -113,7 +113,7 @@ in triggers across different years. Table~\ref{tab:hlt-paths} contains the list 
   MC Simulations
 }
 
-The \gls{EW} \gls{VBS} process which is our signal is
+The \gls{EW} \gls{VBS} signal is
 generated with \MADGRAPH{}5+\PYTHIA{}8 at \gls{LO} with \( \alpha_{EW}^{6} \)
 i.e.
 all vertices in the tree level Feynman diagram are \gls{EW} vertices.
@@ -122,14 +122,14 @@ similar to our signal is generated with same configuration
 but with \( \alpha_{EW}^{4} \alpha_{QCD}^{2} \) i.e.
 two of the six vertices are \gls{QCD}. The dominant backgrounds to the analysis
 are \gls{DY} + Jets, top-quark based processes consisting of
-single top-quark (t and s-channel),
-single top-quark in association with W boson (tW) and top-quark pair (t\=t) production.
+single top-quark (\textit{t} and \textit{s}-channel),
+single top-quark in association with \textit{W} boson (\textit{tW}) and top-quark pair (\textit{t}\textit{\=t}) production.
 The \gls{DY} + Jets are generated at \gls{LO} with \MADGRAPH{}5+\PYTHIA{}8
 in bins of HT
 (scalar sum of all the jet transverse momentums in the event), to have more statistics
 for higher HT bins. Top-quark background process are generated at \gls{NNLO},
-s-channel is generated with \MGvATNLO+\PYTHIA{}8 and others:
-t-channel, tW, t\=t are generated with \POWHEG{}+\PYTHIA{}8. The QCD
+\textit{s}-channel is generated with \MGvATNLO+\PYTHIA{}8 and others:
+\textit{t}-channel, \textit{tW}, \textit{t}\textit{\=t} are generated with \POWHEG{}+\PYTHIA{}8~\cite{Oleari2010}. The QCD
 multijet background is small and not considered in this analysis, since we
 are constructing \textit{Z} candidate
 from two leptons and requiring mass to be within [76,106] \GeV{} mass window (Section~\ref{ch_vbs:event-selection}).
@@ -140,52 +140,52 @@ the complete list of Signal and Background MC samples used for modeling in this 
   \centering
   \caption{List of MC samples for Signal and Background modeling}
   \resizebox{\textwidth}{!}{%
-    \begin{tabular}{llll}%
+    \begin{tabular}{lllll}%
       \toprule
-      Process & Year       & Dataset Name                                                                      & Cross Section (pb) \\
+      Process & Year       & Dataset Name                                                                              & Cross Section (pb) & Events Generated \\
       \midrule
       \midrule
       \multirow{6}{1.1in}{
         VBS\_EWK (Signal)}
-              & 2016       & \url{WminusTo2JZTo2LJJ_EWK_LO_SM_MJJ100PTJ10_TuneCUETP8M1_13TeV-madgraph-pythia8} & 0.02982            \\
-              & 2016       & \url{WplusTo2JZTo2LJJ_EWK_LO_SM_MJJ100PTJ10_TuneCUETP8M1_13TeV-madgraph-pythia8}  & 0.05401            \\
-              & 2016       & \url{ZTo2LZTo2JJJ_EWK_LO_SM_MJJ100PTJ10_TuneCUETP8M1_13TeV-madgraph-pythia8}      & 0.01589            \\
-      \cmidrule(lr){2-4}
-              & 2017, 2018 & \url{WminusTo2JZTo2LJJ_EWK_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}      & 0.02982            \\
-              & 2017, 2018 & \url{WplusTo2JZTo2LJJ_EWK_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}       & 0.05401            \\
-              & 2017, 2018 & \url{ZTo2LZTo2JJJ_EWK_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}           & 0.01589            \\
+              & 2016       & \url{WminusTo2JZTo2LJJ_dipoleRecoil_EWK_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8} & 0.02982            & 590944           \\
+              & 2016       & \url{WplusTo2JZTo2LJJ_dipoleRecoil_EWK_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}  & 0.05401            & 579648           \\
+              & 2016       & \url{ZTo2LZTo2JJJ_dipoleRecoil_EWK_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}      & 0.01589            & 288106           \\
+      \cmidrule(lr){2-5}
+              & 2017, 2018 & \url{WminusTo2JZTo2LJJ_dipoleRecoil_EWK_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8} & 0.02982            & 586811, 592587   \\
+              & 2017, 2018 & \url{WplusTo2JZTo2LJJ_dipoleRecoil_EWK_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}  & 0.05401            & 594517,  598523  \\
+              & 2017, 2018 & \url{ZTo2LZTo2JJJ_dipoleRecoil_EWK_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}      & 0.01589            & 287660, 297577   \\
       \midrule
       \midrule
       \multirow{6}{1.1in}{
         VBS\_QCD (Background)}
-              & 2016       & \url{WminusTo2JZTo2LJJ_QCD_LO_SM_MJJ100PTJ10_TuneCUETP8M1_13TeV-madgraph-pythia8} & 0.3488             \\
-              & 2016       & \url{WplusTo2JZTo2LJJ_QCD_LO_SM_MJJ100PTJ10_TuneCUETP8M1_13TeV-madgraph-pythia8}  & 0.575              \\
-              & 2016       & \url{ZTo2LZTo2JJJ_QCD_LO_SM_MJJ100PTJ10_TuneCUETP8M1_13TeV-madgraph-pythia8}      & 0.3449             \\
-      \cmidrule(lr){2-4}
-              & 2017, 2018 & \url{WminusTo2JZTo2LJJ_QCD_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}      & 0.3488             \\
-              & 2017, 2018 & \url{WplusTo2JZTo2LJJ_QCD_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}       & 0.575              \\
-              & 2017, 2018 & \url{ZTo2LZTo2JJJ_QCD_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}           & 0.3449             \\
+              & 2016       & \url{WminusTo2JZTo2LJJ_QCD_LO_SM_MJJ100PTJ10_TuneCUETP8M1_13TeV-madgraph-pythia8}         & 0.3488             & 500000           \\
+              & 2016       & \url{WplusTo2JZTo2LJJ_QCD_LO_SM_MJJ100PTJ10_TuneCUETP8M1_13TeV-madgraph-pythia8}          & 0.575              & 500000           \\
+              & 2016       & \url{ZTo2LZTo2JJJ_QCD_LO_SM_MJJ100PTJ10_TuneCUETP8M1_13TeV-madgraph-pythia8}              & 0.3449             & 100000           \\
+      \cmidrule(lr){2-5}
+              & 2017, 2018 & \url{WminusTo2JZTo2LJJ_QCD_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}              & 0.3488             & 1476120, 1479242 \\
+              & 2017, 2018 & \url{WplusTo2JZTo2LJJ_QCD_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}               & 0.575              & 1428816,1451346  \\
+              & 2017, 2018 & \url{ZTo2LZTo2JJJ_QCD_LO_SM_MJJ100PTJ10_TuneCP5_13TeV-madgraph-pythia8}                   & 0.3449             & 149536, 143152   \\
       \midrule
       \midrule
       \multirow{16}{1.1in}{
         DY + Jets LO (Background)}
-              & 2016       & \url{DYJetsToLL_M-50_HT-70to100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}           & 169.9              \\
-              & 2016       & \url{DYJetsToLL_M-50_HT-100to200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}          & 147.4              \\
-              & 2016       & \url{DYJetsToLL_M-50_HT-200to400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}          & 41.04              \\
-              & 2016       & \url{DYJetsToLL_M-50_HT-400to600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}          & 5.674              \\
-              & 2016       & \url{DYJetsToLL_M-50_HT-600to800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}          & 1.358              \\
-              & 2016       & \url{DYJetsToLL_M-50_HT-800to1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}         & 0.6229             \\
-              & 2016       & \url{DYJetsToLL_M-50_HT-1200to2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}        & 0.1512             \\
-              & 2016       & \url{DYJetsToLL_M-50_HT-2500toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}         & 0.003659           \\
-      \cmidrule(lr){2-4}
-              & 2017       & \url{DYJetsToLL_M-50_HT-70to100_TuneCP5_13TeV-madgraphMLM-pythia8}                & 167.33             \\
-              & 2017       & \url{DYJetsToLL_M-50_HT-100to200_TuneCP5_13TeV-madgraphMLM-pythia8}               & 161.1              \\
-              & 2017       & \url{DYJetsToLL_M-50_HT-200to400_TuneCP5_13TeV-madgraphMLM-pythia8}               & 48.66              \\
-              & 2017       & \url{DYJetsToLL_M-50_HT-400to600_TuneCP5_13TeV-madgraphMLM-pythia8}               & 6.968              \\
-              & 2017       & \url{DYJetsToLL_M-50_HT-600to800_TuneCP5_13TeV-madgraphMLM-pythia8}               & 1.743              \\
-              & 2017       & \url{DYJetsToLL_M-50_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8}              & 0.8052             \\
-              & 2017       & \url{DYJetsToLL_M-50_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8}             & 0.1933             \\
-              & 2017       & \url{DYJetsToLL_M-50_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8}              & 0.003468           \\
+              & 2016       & \url{DYJetsToLL_M-50_HT-70to100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}                   & 169.9              & 9691660          \\
+              & 2016       & \url{DYJetsToLL_M-50_HT-100to200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}                  & 147.4              & 11017086         \\
+              & 2016       & \url{DYJetsToLL_M-50_HT-200to400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}                  & 41.04              & 9609137          \\
+              & 2016       & \url{DYJetsToLL_M-50_HT-400to600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}                  & 5.674              & 9725661          \\
+              & 2016       & \url{DYJetsToLL_M-50_HT-600to800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}                  & 1.358              & 8292957          \\
+              & 2016       & \url{DYJetsToLL_M-50_HT-800to1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}                 & 0.6229             & 2673066          \\
+              & 2016       & \url{DYJetsToLL_M-50_HT-1200to2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}                & 0.1512             & 596079           \\
+              & 2016       & \url{DYJetsToLL_M-50_HT-2500toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8}                 & 0.003659           & 399492           \\
+      \cmidrule(lr){2-5}
+              & 2017       & \url{DYJetsToLL_M-50_HT-70to100_TuneCP5_13TeV-madgraphMLM-pythia8}                        & 167.33             & 9333543          \\
+              & 2017       & \url{DYJetsToLL_M-50_HT-100to200_TuneCP5_13TeV-madgraphMLM-pythia8}                       & 161.1              & 15124171         \\
+              & 2017       & \url{DYJetsToLL_M-50_HT-200to400_TuneCP5_13TeV-madgraphMLM-pythia8}                       & 48.66              & 11896758         \\
+              & 2017       & \url{DYJetsToLL_M-50_HT-400to600_TuneCP5_13TeV-madgraphMLM-pythia8}                       & 6.968              & 11294006         \\
+              & 2017       & \url{DYJetsToLL_M-50_HT-600to800_TuneCP5_13TeV-madgraphMLM-pythia8}                       & 1.743              & 8691608          \\
+              & 2017       & \url{DYJetsToLL_M-50_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8}                      & 0.8052             & 3089712          \\
+              & 2017       & \url{DYJetsToLL_M-50_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8}                     & 0.1933             & 616923           \\
+              & 2017       & \url{DYJetsToLL_M-50_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8}                      & 0.003468           & 401334           \\
       \bottomrule
     \end{tabular}%
   }\label{tab:mc-list-1}
@@ -195,47 +195,47 @@ the complete list of Signal and Background MC samples used for modeling in this 
   \centering
   \caption{List of MC samples for Signal and Background modeling}
   \resizebox{\textwidth}{!}{%
-    \begin{tabular}{llll}%
+    \begin{tabular}{lllll}%
       \toprule
-      Process & Year & Dataset Name                                                                         & Cross Section (pb) \\
+      Process & Year & Dataset Name                                                                         & Cross Section (pb) & Events Generated \\
       \midrule
       \midrule
       \multirow{8}{1.1in}{
         DY + Jets LO (Background)}
-              & 2018 & \url{DYJetsToLL_M-50_HT-70to100_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}         & 167.33             \\
-              & 2018 & \url{DYJetsToLL_M-50_HT-100to200_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}        & 161.1              \\
-              & 2018 & \url{DYJetsToLL_M-50_HT-200to400_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}        & 48.66              \\
-              & 2018 & \url{DYJetsToLL_M-50_HT-400to600_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}        & 6.968              \\
-              & 2018 & \url{DYJetsToLL_M-50_HT-600to800_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}        & 1.743              \\
-              & 2018 & \url{DYJetsToLL_M-50_HT-800to1200_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}       & 0.8052             \\
-              & 2018 & \url{DYJetsToLL_M-50_HT-1200to2500_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}      & 0.1933             \\
-              & 2018 & \url{DYJetsToLL_M-50_HT-2500toInf_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}       & 0.003468           \\
+              & 2018 & \url{DYJetsToLL_M-50_HT-70to100_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}         & 167.33             & 10010341         \\
+              & 2018 & \url{DYJetsToLL_M-50_HT-100to200_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}        & 161.1              & 11516746         \\
+              & 2018 & \url{DYJetsToLL_M-50_HT-200to400_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}        & 48.66              & 10840079         \\
+              & 2018 & \url{DYJetsToLL_M-50_HT-400to600_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}        & 6.968              & 18902490         \\
+              & 2018 & \url{DYJetsToLL_M-50_HT-600to800_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}        & 1.743              & 8826238          \\
+              & 2018 & \url{DYJetsToLL_M-50_HT-800to1200_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}       & 0.8052             & 3120982          \\
+              & 2018 & \url{DYJetsToLL_M-50_HT-1200to2500_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}      & 0.1933             & 531566           \\
+              & 2018 & \url{DYJetsToLL_M-50_HT-2500toInf_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8}       & 0.003468           & 415517           \\
       \midrule
       \midrule
       \multirow{21}{1.1in}{
         Top (Background)}
-              & 2016 & \url{ST_tW_antitop_5f_NoFullyHadronicDecays_13TeV_PSweights-powheg-pythia8}          & 38.06              \\
-              & 2016 & \url{ST_tW_antitop_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8}        & 34.97              \\
-              & 2016 & \url{ST_tW_top_5f_NoFullyHadronicDecays_13TeV_PSweights-powheg-pythia8}              & 38.09              \\
-              & 2016 & \url{ST_tW_top_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8}            & 34.91              \\
-              & 2016 & \url{ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8} & 67.91              \\
-              & 2016 & \url{ST_t-channel_top_4f_InclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8}     & 113.3              \\
-              & 2016 & \url{ST_s-channel_4f_leptonDecays_13TeV_PSweights-amcatnlo-pythia8}                  & 3.365              \\
-              & 2016 & \url{ST_s-channel_4f_hadronicDecays_TuneCP5_PSweights_13TeV-amcatnlo-pythia8}        & 11.24              \\
-              & 2016 & \url{ST_s-channel_4f_InclusiveDecays_13TeV-amcatnlo-pythia8}                         & 10.12              \\
-              & 2016 & \url{TTToHadronic_TuneCP5_PSweights_13TeV-powheg-pythia8}                            & 377.96             \\
-              & 2016 & \url{TTToSemiLeptonic_TuneCP5_PSweights_13TeV-powheg-pythia8}                        & 365.34             \\
-              & 2016 & \url{TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8}                               & 88.29              \\
-      \cmidrule(lr){2-4}
-              & 2017 & \url{TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8}                                  & 365.34             \\
-              & 2017 & \url{TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8}                                         & 86.99              \\
-              & 2017 & \url{TTToHadronic_TuneCP5_13TeV-powheg-pythia8}                                      & 377.96             \\
-              & 2017 & \url{ST_s-channel_antitop_leptonDecays_13TeV-PSweights_powheg-pythia}                & 1.33               \\
-              & 2017 & \url{ST_s-channel_top_leptonDecays_13TeV-PSweights_powheg-pythia}                    & 2.13               \\
-              & 2017 & \url{ST_t-channel_antitop_5f_TuneCP5_PSweights_13TeV-powheg-pythia8}                 & 27.19              \\
-              & 2017 & \url{ST_t-channel_top_5f_TuneCP5_13TeV-powheg-pythia8}                               & 45.7               \\
-              & 2017 & \url{ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8}                  & 12.04              \\
-              & 2017 & \url{ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8}                      & 12.04              \\
+              & 2016 & \url{ST_tW_antitop_5f_NoFullyHadronicDecays_13TeV_PSweights-powheg-pythia8}          & 38.06              & 2710849          \\
+              & 2016 & \url{ST_tW_antitop_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8}        & 34.97              & 174109584        \\
+              & 2016 & \url{ST_tW_top_5f_NoFullyHadronicDecays_13TeV_PSweights-powheg-pythia8}              & 38.09              & 3213335          \\
+              & 2016 & \url{ST_tW_top_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8}            & 34.91              & 173908704        \\
+              & 2016 & \url{ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8} & 67.91              & 17771480         \\
+              & 2016 & \url{ST_t-channel_top_4f_InclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8}     & 113.3              & 31835782         \\
+              & 2016 & \url{ST_s-channel_4f_leptonDecays_13TeV_PSweights-amcatnlo-pythia8}                  & 3.365              & 33572360         \\
+              & 2016 & \url{ST_s-channel_4f_hadronicDecays_TuneCP5_PSweights_13TeV-amcatnlo-pythia8}        & 11.24              & 54761756         \\
+              & 2016 & \url{ST_s-channel_4f_InclusiveDecays_13TeV-amcatnlo-pythia8}                         & 10.12              & 29561764         \\
+              & 2016 & \url{TTToHadronic_TuneCP5_PSweights_13TeV-powheg-pythia8}                            & 377.96             & 21432309760      \\
+              & 2016 & \url{TTToSemiLeptonic_TuneCP5_PSweights_13TeV-powheg-pythia8}                        & 365.34             & 32366942208      \\
+              & 2016 & \url{TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8}                               & 88.29              & 4891619840       \\
+      \cmidrule(lr){2-5}
+              & 2017 & \url{TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8}                                  & 365.34             & 72526299136      \\
+              & 2017 & \url{TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8}                                         & 86.99              & 648729856        \\
+              & 2017 & \url{TTToHadronic_TuneCP5_13TeV-powheg-pythia8}                                      & 377.96             & 61926825984      \\
+              & 2017 & \url{ST_s-channel_antitop_leptonDecays_13TeV-PSweights_powheg-pythia}                & 1.33               & 3422897          \\
+              & 2017 & \url{ST_s-channel_top_leptonDecays_13TeV-PSweights_powheg-pythia}                    & 2.13               & 12862777         \\
+              & 2017 & \url{ST_t-channel_antitop_5f_TuneCP5_PSweights_13TeV-powheg-pythia8}                 & 27.19              & 557503744        \\
+              & 2017 & \url{ST_t-channel_top_5f_TuneCP5_13TeV-powheg-pythia8}                               & 45.7               & 1418556928       \\
+              & 2017 & \url{ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8}                  & 12.04              & 279005344        \\
+              & 2017 & \url{ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8}                      & 12.04              & 272081088        \\
       \bottomrule
     \end{tabular}%
   }\label{tab:mc-list-2}
@@ -245,22 +245,22 @@ the complete list of Signal and Background MC samples used for modeling in this 
   \centering
   \caption{List of MC samples for Signal and Background modeling}
   \resizebox{\textwidth}{!}{%
-    \begin{tabular}{llll}%
+    \begin{tabular}{lllll}%
       \toprule
-      Process & Year & Dataset Name                                                           & Cross Section (pb) \\
+      Process & Year & Dataset Name                                                           & Cross Section (pb)                \\
       \midrule
       \midrule
       \multirow{9}{1.1in}{
         Top (Background)}
-              & 2018 & \url{TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8}                    & 365.34             \\
-              & 2018 & \url{TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8}                           & 86.99              \\
-              & 2018 & \url{TTToHadronic_TuneCP5_13TeV-powheg-pythia8}                        & 377.96             \\
-              & 2018 & \url{ST_s-channel_antitop_leptonDecays_13TeV-PSweights_powheg-pythia}  & 1.33               \\
-              & 2018 & \url{ST_s-channel_top_leptonDecays_13TeV-PSweights_powheg-pythia}      & 2.13               \\
-              & 2018 & \url{ST_t-channel_antitop_5f_TuneCP5_13TeV-powheg-pythia8}             & 27.19              \\
-              & 2018 & \url{ST_t-channel_top_5f_TuneCP5_13TeV-powheg-pythia8}                 & 45.7               \\
-              & 2018 & \url{ST_tW_DS_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8} & 12.04              \\
-              & 2018 & \url{ST_tW_DS_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8}     & 12.04              \\
+              & 2018 & \url{TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8}                    & 365.34             & 90424811520  \\
+              & 2018 & \url{TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8}                           & 86.99              & 4635769344   \\
+              & 2018 & \url{TTToHadronic_TuneCP5_13TeV-powheg-pythia8}                        & 377.96             & 102734004224 \\
+              & 2018 & \url{ST_s-channel_antitop_leptonDecays_13TeV-PSweights_powheg-pythia}  & 1.33               & 3476320      \\
+              & 2018 & \url{ST_s-channel_top_leptonDecays_13TeV-PSweights_powheg-pythia}      & 2.13               & 12929918     \\
+              & 2018 & \url{ST_t-channel_antitop_5f_TuneCP5_13TeV-powheg-pythia8}             & 27.19              & 326172576    \\
+              & 2018 & \url{ST_t-channel_top_5f_TuneCP5_13TeV-powheg-pythia8}                 & 45.7               & 815051136    \\
+              & 2018 & \url{ST_tW_DS_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8} & 12.04              & 170525440    \\
+              & 2018 & \url{ST_tW_DS_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8}     & 12.04              & 170711072    \\
       \bottomrule
     \end{tabular}%
   }\label{tab:mc-list-3}
@@ -286,8 +286,8 @@ Events with \textit{Z} candidate mass in the range \( [76, 106] \GeV{} \) are se
 Following are the tight selections for the muons and electrons:
 \begin{itemize}
   \item \textbf{Tight Muons}: Muons with \( p_T > 20 \GeV{} \), passing
-        tight ID~\cite{cms-muon-id}, ``pfRelIso04'' less than 0.15 and
-        impact parameters \( d_{xy} < 0.01, d_z < 0.1 \).
+        tight ID~\cite{cms-muon-id}, ``pfRelIso04'' (Section~\ref{ch_reco:muons}) less than 0.15 and
+        impact parameters \( d_{xy} < 0.01, d_z < 0.1 \)~\cite{cms-muon-id}.
   \item \textbf{Tight Electrons}: Electrons with \( p_T > 20 \GeV \)
         and MVA based ID depending on year of the dataset.
         For 2016 dataset: passing ``mvaSpring16GP\_WP90'' (MVA based ID, 90\% efficiency)
@@ -295,7 +295,7 @@ Following are the tight selections for the muons and electrons:
         \( |\eta| > 1.479 \) and less than \( 0.0588 \) otherwise.
         For 2017 and 2018 dataset: passing ``mvaFall17V2Iso\_WP90''
         (MVA based ID + Isolation, 90\% efficiency) and ``pfRelIso03\_all''
-        less than \( 0.06 \) is required.
+        less than \( 0.06 \) is required~\cite{cms-egamma-id}.
 \end{itemize}
 
 \subsection{
@@ -317,7 +317,7 @@ is selected.
   \item \textbf{VBS Jets}: Whether the event is a boosted event or not,
         narrow jets (AK4) are considered as VBS jets.
         This is done by first cleaning jets by applying tight ``JetID'',
-        tight ``pileup JetID'' (PUID),
+        tight ``pileup JetID'' (PUID)~\cite{cms-jme-pu-run2},
         \( p_T > 30 \),
         and checking isolation against selected leptons with \(\Delta R = 0.4\),
         selected FatJet (if any) with \( \Delta R = 0.8 \)
@@ -402,7 +402,8 @@ Following are the scale factors used in this analysis:
   DY+Jets Normalization
 }
 
-DY+Jets process \gls{MC} is generated at \gls{LO} and is not well modeled.
+DY+Jets process \gls{MC} is generated at \gls{LO}.
+The \gls{MC} doesn't model well the rather peculiar subset of the DY+Jets that is relevant for this analysis.
 To normalize and model our main background \gls{MC} DY+Jets,
 we extract scale factors from bins of variables
 in control region and apply it to both control and signal region.
@@ -469,7 +470,7 @@ theoretical renormalization (QCD scale) error on the DY+Jets and VBS\_QCD \gls{M
 
 Section~\ref{ch_vbs:boosted-plots} and~\ref{ch_vbs:resolved-plots}
 shows kinematics plots in control region for boosted and
-resolved ZV category respectively. These distributions show reasonable
+resolved \textit{ZV} category respectively. These distributions show reasonable
 agreement of data-to-\gls{MC} within statistical fluctuations.
 This shows that our background is well modeled in control region.
 
@@ -1372,13 +1373,27 @@ for Boosted ZV and in Table~\ref{tab:fit-values-zjj} for Resolved ZV category.
 Using multivariate analysis expected signal significance
 of \(1.5 \sigma \) is reported. The analysis is
 currently performed blinded and the full results
-are expected in early next year 2023.
+are expected in early next year 2023. This is
+a small piece of overall \gls{VBS} efforts at \gls{CMS}. Ultimately
+the plan is to search for \gls{VBS} in all the diboson
+channels and all the final states.
 
 
-The Run3 (2022--2025) of \gls{LHC}
-proton-proton collision is expected to
-collect integrated luminosity
-more than Run1 and Run2 combined. We expect the larger
-dataset and advanced multivariate technique
-will finally enable us to provide evidence for
+Run3 (2022--2025) of \gls{LHC}
+proton-proton collisions is expected to
+collect an integrated luminosity of 250 \fbinv{}.
+This is approximately double the combined luminosity of Run1 and Run2.
+We expect the larger
+dataset and the usage of advanced multivariate technique
+will enable us to provide evidence for
 \gls{VBS} in semileptonic \textit{ZV} final state.
+
+
+Constraints on the structure of quartic vector boson interactions
+in the framework of dimension-8 \gls{EFT} operators are in the works
+using this channel and the semileptonic \textit{WV} channel as well.
+
+Jets at large \( \eta \) are the key to \gls{VBS} measurement.
+The planned upgrade to replace \gls{HCAL} and \gls{ECAL}
+with \gls{HGCAL} will improve our capabilities to identify these jets and
+reject pileup contamination.

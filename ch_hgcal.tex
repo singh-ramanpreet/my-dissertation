@@ -15,7 +15,7 @@ higher dose of radiation and the average number of pileup interactions
 will be of the order \( O(140) \). The endcap calorimeters \gls{ECAL} and \gls{HCAL} will suffer
 irreparable damage due to the much higher radiation dose received
 from the increased luminosity in those regions.
-The \gls{HGCAL} is an upgrade that will replace current endcap calorimeters
+The \glsfirst{HGCAL} is an upgrade that will replace current endcap calorimeters
 (\gls{ECAL} and \gls{HCAL}).
 \gls{HGCAL} is expected to be completed and installed
 during \gls{LS3} (2026--2028).
@@ -107,7 +107,7 @@ Materials which scintillate i.e.~emits light
 whenever ionizing radiation passes through it are known as
 scintillators. Scintillators can be crystals (current barrel and endcap
 \gls{ECAL}), liquid or plastic and are broadly divided into two
-categories organic or inorganic.
+categories, organic or inorganic.
 \gls{HGCAL} will make use of organic plastic scintillator. The most
 commonly used base material in scintillators of this type are \gls{PVT} and \gls{PST}.
 \gls{PVT} and \gls{PST} are base material and
@@ -154,7 +154,7 @@ also higher intrinsic noise and power consumption.
 
 For \gls{HGCAL} the \glspl{SiPM} will be mounted on \gls{PCB},
 and prepared scintillator tiles will be directly glued
-over the \glspl{SiPM} with the dimple centered on the \gls{SiPM}'s active area.
+over the \glspl{SiPM} with the dimple centered on the \gls{SiPM}'s active area~\cite{Zutshi2012}.
 
 \begin{figure}[!ht]
   \centering
@@ -290,6 +290,9 @@ is done by the machine in following steps:
         Wrapped tile in Figure~\ref{fig:hgcal-scintillator-tile-wrapped}
         is wrapped automatically with this procedure.
 \end{itemize}
+
+A supplemental video showing wrapping of scintillator tile in \gls{ESR} film by the machine
+is provided~\cite{tile-wrapping}.
 
 \begin{figure}[!ht]
   \centering
@@ -440,7 +443,7 @@ the option with the higher preference is selected. Two different scenarios were
 considered with preference order as:
 
 \begin{itemize}
-  \item \textbf{Scene A}:
+  \item \textbf{Scenario A}:
         \begin{enumerate}
           \item Injection Molded Scintillator Tiles and SiPM of active area \( 2\mm{}^2 \).
           \item Injection Molded Scintillator Tiles and SiPM of active area \( 4\mm{}^2 \).
@@ -448,7 +451,7 @@ considered with preference order as:
           \item Cast Scintillator Tiles and SiPM of active area \( 4\mm{}^2 \).
           \item Cast Scintillator Tiles and SiPM of active area \( 9\mm{}^2 \).
         \end{enumerate}
-  \item \textbf{Scene B}:
+  \item \textbf{Scenario B}:
         \begin{enumerate}
           \item Injection Molded Scintillator Tiles and SiPM of active area \( 2\mm{}^2 \).
           \item Cast Scintillator Tiles and SiPM of active area \( 2\mm{}^2 \).
@@ -484,27 +487,28 @@ for starting layers.
   Results and Conclusion
 }
 
-Since for assembly of scintillator tiles on tileboard, it is preferred
+For assembly of scintillator tiles on a tileboard, it is preferred
 to have single type of scintillator with \gls{SiPM} combination.
-For this reason, each scene is evaluated in the preference order
+For this reason, each scenario is evaluated in the preference order
 and tileboard is assigned a combination only
 if all the rings in it are able to satisfy \gls{SNR} \( > 3\).
 Figure~\ref{fig:hgcal-scenes-fnal-jan20} shows final
-results of how both scenes fill tileboards in \gls{CE-H}.
+results of how both scenarios fill tileboards in \gls{CE-H}.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[trim={400 370 20 10},clip,width=0.24\textwidth]{figures/hgcal/plot_scenes/sceneA_jan20_fix_vto2p0_with9mm2.pdf}
-  \includegraphics[trim={400 310 20 70},clip,width=0.24\textwidth]{figures/hgcal/plot_scenes/sceneA_jan20_fix_vto2p0_with9mm2.pdf}
-  \includegraphics[trim={400 250 20 130},clip,width=0.24\textwidth]{figures/hgcal/plot_scenes/sceneA_jan20_fix_vto2p0_with9mm2.pdf}
-  \includegraphics[trim={400 190 20 190},clip,width=0.24\textwidth]{figures/hgcal/plot_scenes/sceneA_jan20_fix_vto2p0_with9mm2.pdf}
+  \includegraphics[trim={405 370 20 10},clip,width=0.212\textwidth]{figures/hgcal/plot_scenes/sceneA_jan20_fix_vto2p0_with9mm2.pdf} \hspace{-15pt}
+  \includegraphics[trim={405 310 20 70},clip,width=0.212\textwidth]{figures/hgcal/plot_scenes/sceneA_jan20_fix_vto2p0_with9mm2.pdf} \hspace{-15pt}
+  \includegraphics[trim={405 250 20 130},clip,width=0.212\textwidth]{figures/hgcal/plot_scenes/sceneB_jan20_fix_vto2p0_with9mm2.pdf} \hspace{-15pt}
+  \includegraphics[trim={405 250 20 130},clip,width=0.212\textwidth]{figures/hgcal/plot_scenes/sceneA_jan20_fix_vto2p0_with9mm2.pdf} \hspace{-15pt}
+  \includegraphics[trim={405 190 20 190},clip,width=0.212\textwidth]{figures/hgcal/plot_scenes/sceneA_jan20_fix_vto2p0_with9mm2.pdf} \hspace{-15pt}
   \begin{minipage}[c]{0.49\textwidth}
     \includegraphics[trim={0 0 165pt 0},clip,width=\textwidth]{figures/hgcal/plot_scenes/sceneA_jan20_fix_vto2p0_with9mm2.pdf}
   \end{minipage}
   \begin{minipage}[c]{0.49\textwidth}
     \includegraphics[trim={0 0 165pt 0},clip,width=\textwidth]{figures/hgcal/plot_scenes/sceneB_jan20_fix_vto2p0_with9mm2.pdf}
   \end{minipage}
-  \caption[\gls{HGCAL} scenarios]{\gls{HGCAL} scenarios. Left: Scene A, Right: Scene B}%
+  \caption[\gls{HGCAL} scenarios]{\gls{HGCAL} scenarios. Left: Scenario A, Right: Scenario B}%
   \label{fig:hgcal-scenes-fnal-jan20}
 \end{figure}
 
@@ -513,7 +517,7 @@ results of how both scenes fill tileboards in \gls{CE-H}.
   \caption{\gls{HGCAL} scenarios comparison}\label{tab:scenarios}
   \begin{tabular}{p{1.5in}cll}%
     \toprule
-                                                   &                    & Scene A                & Scene B                \\
+                                                   &                    & Scenario A             & Scenario B             \\
     \midrule
     \multirow{3}{=}{Cast Scintillator}             & Cell Count         & 84, 096                & 153,216                \\
                                                    & Total Area         & 101.59 \(\text{m}^2 \) & 197.46 \(\text{m}^2 \) \\
@@ -531,10 +535,14 @@ results of how both scenes fill tileboards in \gls{CE-H}.
 \end{table}
 
 
-Both the scenes require same number of \(9 \mm{}^{2}\) \glspl{SiPM} (Table~\ref{tab:scenarios}).
-Scene B uses approximately half the \(4 \mm{}^{2}\) \glspl{SiPM}
-compared to scene A. The amount of cast and injection molded
-scintillator is approximately proportional in scene B. This
-is beneficial to balance the tile production load between
-different institutes.
-For these reasons scene B is recommended to be used for \gls{HGCAL}.
+Both the scenarios require the same number of \(9 \mm{}^{2}\) \glspl{SiPM} (Table~\ref{tab:scenarios}).
+Scenario B uses approximately half the \(4 \mm{}^{2}\) \glspl{SiPM}
+compared to scenario A. The amount of cast and injection molded
+scintillator is approximately equal in scenario B.
+Scene A is better choice since it will require
+less number of cast scintillator tiles to be produced.
+However, subsequent measurement of injection
+molded tiles from different production batches have shown
+that its light response can fluctuates by 20\%.
+To be on the safe side \gls{HGCAL} collaboration have chosen
+scenarios B for the scintillator section of \gls{HGCAL}.
