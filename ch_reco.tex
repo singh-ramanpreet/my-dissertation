@@ -34,18 +34,18 @@ to grow the tracks into possible trajectories.
 There can be multiple hits in each new layer, for this multiple
 trajectory candidates are created.
 All the trajectory candidates are grown in parallel
-to avoid bias, and truncated at each layer to prevent exponential increase
+to avoid bias and truncated at each layer to prevent exponential increase
 in number of candidates. Then finally the track is fitted to compute momentum
 and vertex information.
 
 The main purpose of the calorimeter clustering is to determine the position and
 energy of the particle. A cluster in a calorimeter is a local group of
-energy deposits that are spatially consistent with a electromagnetic
+energy deposits that are spatially consistent with an electromagnetic
 or hadronic shower. First the topological
 clusters are identified, a topological cluster is a contiguous region of energy
 deposits. Next seeds are identified in topological cluster with certain energy
 threshold and are local maxima within topological cluster.
-In \gls{ECAL} seed is a crystals with energy threshold of 0.23 \GeV{}
+In \gls{ECAL} seed is a crystal with energy threshold of 0.23 \GeV{}
 and have highest energy deposit among the 8 neighboring
 crystals in a topological cluster.
 In \gls{HCAL} seed is a tower with energy threshold of 0.08 \GeV{} highest
@@ -61,7 +61,7 @@ The fraction of energy shared depends on the energy and position of the
 clusters being reconstructed.
 Each iteration uses re-calculated energy and position of the clusters.
 Iteration continues until either
-the maximum iteration is reached or clusters
+the maximum iteration is reached, or clusters
 energy and positions values have converged.
 
 \section{
@@ -129,7 +129,7 @@ recommendation and are defined in Reference~\cite{cms-muon-id}.
 
 In addition to muons from collision events, there can be cosmic muons from pion decay in
 upper atmosphere. Cosmic muons are easily
-rejected since generally they are not in-time with collision, and are far from
+rejected since generally they are not in-time with collision and are far from
 interaction points.
 
 \subsection{
@@ -155,7 +155,7 @@ a maximum of two, and energy deposits in a cone of \( \Delta R = 0.15 \) in \gls
 around the position of electrons and photons is required to be less than 10\% of \gls{ECAL}.
 
 Similar to muons, after electron and photon reconstruction is done, their kinematics properties
-are calculated and various other properties required for cut based
+are calculated, and various other properties required for cut based
 and \gls{MVA} based identification are stored. The detailed description of electrons
 and photons identification technique and properties used in this dissertation
 can be found in Reference~\cite{cms-egamma-id}.
@@ -243,12 +243,12 @@ calculated and stored.
   N-Subjetiness and Deep Taggers
 }\label{ch_reco:subjetiness}
 
-The origin of fatjets are usually when heavy energetic particle
+The origin of fatjets is usually when a heavy energetic particle
 such as \textit{W} or \textit{Z} bosons decays to a pair of quarks
 and the resulting jets overlap each other. This usually happens
 when decaying the particle is boosted in lab frame, and the fatjet
 is usually referred as boosted jet.
-To find and discriminate the fatjet of interest based on in it's substructure
+To find and discriminate the fatjet of interest based on in its substructure
 the two common technique used in \gls{CMS} are N-Subjetiness~\cite{tau21-paper}
 and ``deep tagger''~\cite{cms-jme-deep-tagger}.
 
@@ -296,7 +296,7 @@ describes the architecture of ``DeepAK8'' tagging. These taggers are trained on 
 from \gls{PF}, and provide multi class tagging probabilities such as
 \textit{Z} vs. \gls{QCD}, \textit{W} vs. \gls{QCD}, etc.
 Since deep taggers utilize deep neutral network with particle level
-information their classification power is higher than N-subjetiness,
+information their classification power is higher than N-subjetiness
 and are worth the study for future analysis.
 %In addition to
 %there are version of these taggers is also which is de-correlated from the mass of jet,
@@ -343,7 +343,7 @@ Kinematics of such particles can be determined using the law of conservation of
 total momentum. In case of proton-proton collision,
 the actual collision happens between quarks contained in
 proton which carry an undetermined fraction of proton momentum.
-For this reasons kinematic determination
+For this reason kinematic determination
 of invisible particles is limited to transverse plane only.
 
 After all the particles are reconstructed in an event, their \( p_T \)'s
@@ -410,7 +410,7 @@ where \texttt{p} and \texttt{j} are defined as collection of quarks of gluons,
 are the leptons consisting of electrons, muons and taus. The syntax
 indicates \texttt{QED=4 QCD=0} implies that there are four \gls{EW}
 vertices, since we are first generating \textit{Z} on-shell, and zero
-\texttt{QCD} vertices. The last two \gls{EW} vertices comes from
+\texttt{QCD} vertices. The last two \gls{EW} vertices come from
 decay of \textit{Z} bosons to fermions.
 
 \subsection{
