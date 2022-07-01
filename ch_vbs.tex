@@ -751,7 +751,7 @@ input variables which do not have significant impact on the
 performance of the model in terms of \gls{AUC} of \gls{ROC}
 were dropped from the final training models.
 Distribution of final input variables
-used in training are shown in Figure~\ref{fig:vbs-training-input-zv} and Figure~\ref{fig:vbs-training-input-zjj}.
+used in training are shown in Figures~\ref{fig:vbs-training-input-zv} --~\ref{fig:vbs-training-input-zjj-1-sr}.
 
 \begin{table}[!ht]
   \centering
@@ -770,6 +770,19 @@ used in training are shown in Figure~\ref{fig:vbs-training-input-zv} and Figure~
     \bottomrule
   \end{tabular}\label{tab:training-stats}
 \end{table}
+
+
+Final input variables used in Boosted and Resolved \textit{ZV} training model are:
+\begin{itemize}
+  \item \( M_{JJ}^{VBS} \): invariant mass of \gls{VBS} tagged jets.
+  \item Zeppenfeld \( z^{*} \): Zeppenfeld variable for \textit{Z} boson~\cite{Rainwater1996}, \( z^{*} = \frac{\eta_{Z} - (\eta_{j1}^{VBS} + \eta_{j2}^{VBS})/2}{|\Delta \eta_{jj}^{VBS}|} \)
+  \item QGL \( j_{1}^{VBS} \), \( j_{2}^{VBS} \): \gls{QGL} of VBS tagged jets. Likelihood whether the jet originated from a quark or gluon.
+  \item \( M_{VV} \) invariant mass of \textit{Z} and \textit{V} boson.
+  \item HT\textsuperscript{*} (Resolved category only): scalar sum of \(p_T\) of jet candidates
+        of \textit{V} boson and \gls{VBS} tagged jets.
+  \item \( \eta_{lep2} \) (Resolved category only): \( \eta \) of trailing lepton.
+\end{itemize}
+
 
 \begin{figure}[!ht]
   \centering
@@ -827,19 +840,6 @@ used in training are shown in Figure~\ref{fig:vbs-training-input-zv} and Figure~
   \label{fig:vbs-training-input-zv-sr}
 \end{figure}
 
-%\begin{figure}[!ht]
-%  \centering
-%  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_dibos_m.pdf}
-%  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf_m.pdf} \\
-%  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf1_AK4_qgid.pdf}
-%  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_vbf2_AK4_qgid.pdf} \\
-%  \includegraphics[width=0.4\textwidth]{analysis_plots/tmva_plots/zv_BDTG14_zeppLep_deta.pdf}
-%  \caption[Inputs Variables for training Boosted ZV BDT Classifier]%
-%  {Inputs Variables (combined for Run2 MC) for training Boosted ZV BDT Classifier.
-%    From top: Diboson invariant mass, VBS tagged jets invariant mass, \gls{QGL} of leading
-%    VBS tagged jet, \gls{QGL} of trailing VBS tagged jet, Zeppenfeld variable of leptonic boson.}%
-%  \label{fig:vbs-training-input-zv}
-%\end{figure}
 
 \begin{figure}[!ht]
   \centering
@@ -932,35 +932,7 @@ used in training are shown in Figure~\ref{fig:vbs-training-input-zv} and Figure~
   \label{fig:vbs-training-input-zjj-1-sr}
 \end{figure}
 
-
-%\begin{figure}[!ht]
-%  \centering
-%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_dibos_m.pdf}
-%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf_m.pdf} \\
-%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_ht_resolved.pdf}
-%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_lep2_eta.pdf} \\
-%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf1_AK4_qgid.pdf}
-%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_vbf2_AK4_qgid.pdf}
-%  \includegraphics[width=0.32\textwidth]{analysis_plots/tmva_plots/zjj_BDTG14_zeppLep_deta.pdf}
-%  \caption[Inputs Variables for training Resolved ZV BDT Classifier]%
-%  {Inputs Variables (combined for Run2 MC) for training Resolved ZV BDT Classifier.
-%    From top: Diboson invariant mass, VBS tagged jets invariant mass,
-%    HT\textsuperscript{*} (\( p_{T} \) sum of jets), trailing lepton \( \eta \),
-%    \gls{QGL} of leading VBS tagged jet,
-%    \gls{QGL} of trailing VBS tagged jet, Zeppenfeld variable of leptonic boson.}%
-%  \label{fig:vbs-training-input-zjj}
-%\end{figure}
-
-Final input variables used in Boosted and Resolved \textit{ZV} training model are:
-\begin{itemize}
-  \item \( M_{JJ}^{VBS} \): invariant mass of \gls{VBS} tagged jets.
-  \item Zeppenfeld \( z^{*} \): Zeppenfeld variable for \textit{Z} boson~\cite{Rainwater1996}, \( z^{*} = \frac{\eta_{Z} - (\eta_{j1}^{VBS} + \eta_{j2}^{VBS})/2}{|\Delta \eta_{jj}^{VBS}|} \)
-  \item QGL \( j_{1}^{VBS} \), \( j_{2}^{VBS} \): \gls{QGL} of VBS tagged jets. Likelihood whether the jet originated from a quark or gluon.
-  \item \( M_{VV} \) invariant mass of \textit{Z} and \textit{V} boson.
-  \item HT\textsuperscript{*} (Resolved category only): scalar sum of \(p_T\) of jet candidates
-        of \textit{V} boson and \gls{VBS} tagged jets.
-  \item \( \eta_{lep2} \) (Resolved category only): \( \eta \) of trailing lepton.
-\end{itemize}
+\clearpage{}
 
 After training, \gls{TMVA} evaluates \gls{BDT} input variables
 and ranks them in terms of importance and separation
@@ -1017,19 +989,26 @@ has 79 \% of \gls{AUC}.
 
 \begin{table}[!ht]
   \centering
-  \caption{TMVA configuration of trained models}
+  \caption{TMVA configuration of trained models for Boosted and Resolved \textit{ZV}}
   \begin{tabular}{lc}%
     \toprule
-                            & Boosted and Resolved ZV \\
+    TMVA Option        & Value       \\
     \midrule\relax
-    \verb|BoostType|        & \verb|Grad|             \\
-    \verb|NTrees|           & 800                     \\
-    \verb|MaxDepth|         & 3                       \\
-    \verb|MinNodeSize|      & 3\%                     \\
-    \verb|nCuts|            & 100                     \\
-    \verb|Shrinkage|        & 0.010                   \\
-    \verb|UseBaggedBoost|   & \verb|True|             \\
-    \verb|BaggedSampleFrac| & 0.6                     \\
+    \verb|BoostType|   & \verb|Grad| \\
+    \verb|NTrees|      & 800         \\
+    \verb|MaxDepth|    & 3           \\
+    \verb|MinNodeSize| & 3\%         \\
+    \bottomrule
+  \end{tabular}
+  \quad
+  \begin{tabular}{lc}%
+    \toprule
+    TMVA Option             & Value       \\
+    \midrule\relax
+    \verb|nCuts|            & 100         \\
+    \verb|Shrinkage|        & 0.010       \\
+    \verb|UseBaggedBoost|   & \verb|True| \\
+    \verb|BaggedSampleFrac| & 0.6         \\
     \bottomrule
   \end{tabular}\label{tab:training-tmva-config}
 \end{table}
