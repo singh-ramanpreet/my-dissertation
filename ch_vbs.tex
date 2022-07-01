@@ -129,7 +129,10 @@ in bins of HT
 (scalar sum of all the jet transverse momentums in the event), to have more statistics
 for higher HT bins. Top-quark background process are generated at \gls{NNLO},
 s-channel is generated with \MGvATNLO+\PYTHIA{}8 and others:
-t-channel, tW, t\=t are generated with \POWHEG{}+\PYTHIA{}8.
+t-channel, tW, t\=t are generated with \POWHEG{}+\PYTHIA{}8. The QCD
+multijet background is small and not considered in this analysis, since we
+are constructing \textit{Z} candidate
+from two leptons and requiring mass to be within [76,106] \GeV{} mass window (Section~\ref{ch_vbs:event-selection}).
 Tables~\ref{tab:mc-list-1},~\ref{tab:mc-list-2},~\ref{tab:mc-list-3} contains
 the complete list of Signal and Background MC samples used for modeling in this analysis.
 
@@ -266,7 +269,7 @@ the complete list of Signal and Background MC samples used for modeling in this 
 \clearpage
 \section{
   Event Selection
- }
+ }\label{ch_vbs:event-selection}
 
 In the first stage of selection, events are selected if there are a minimum number
 of objects for the relevant analysis categories i.e.
