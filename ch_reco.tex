@@ -115,8 +115,8 @@ respectively, ``NH'' refers to neutral hadrons, \( \mu \) refers to muon, and
 There are multiple source of muons whenever collision event happens, they can be
 real muons or hadrons which are misidentified as muons, these hadrons
 are able ``punch'' through \gls{HCAL} and leaves hit in muon detector. The real
-muons of interest are called ``prompt'' muons and others are either usually referred
-as ``fake'' or ``non-prompt''. Fake muons can originate from decay of pions and kaons in flight
+muons of interest are called ``prompt'' muons and others are usually referred
+as ``non-prompt''. Non-prompt muons can originate from decay of pions and kaons in flight
 usually identified with a ``kink'' in track or from heavy flavor decay of b or c-quarks
 which are identified with tracks not originating form \gls{PV}.
 The prompt muons are the ones coming from decay of H, W, Z bosons and \( \tau \) leptons,
@@ -176,7 +176,7 @@ which takes as input all of the \gls{PF} candidates and the associated tracks.
 The clustering start with combining 4-vectors of the two particles \(i\) and  \(j\), if the distance between
 them (\( d_{ij} \)) is lower than stopping distance (\( d_{iB} \)).
 Then particles \(i\) and  \(j\) are removed from the input collection,
-and the clustering is continued with combined \(ij\) and the next candidate in
+and the clustering is continued with combined \(ij\) particle and the next candidate in
 the collection.
 The clustering stops when, \( d_{ij} > d_{iB} \) and \( i \) is called a jet.
 
@@ -226,10 +226,10 @@ are derived from the differences in \(p_T\) and \(\eta \)
 response of jets in data and \gls{MC} samples,
 using \( \gamma \) + jets, \textit{Z} + jets, and dijet \gls{MC} events~\cite{CMS-DP-2020-019}.
 
-To improve the jet selection and reject jets originating purely from \gls{PU}
-two methods are used in this dissertation, jet identification based on
+To improve the jet selection and reject jets originating purely from \gls{PU},
+two methods are used in this dissertation, (a) jet identification based on
 multiplicities and energy fraction of particles contained in the jet,
-and \gls{MVA} based \gls{PU} identification which uses jets shape
+and (b) \gls{MVA} based \gls{PU} identification which uses jets shape
 variables to discriminate prompt jet from pileup jets.
 The details of \gls{PU} mitigation and identification used in
 \gls{CMS} are described in Reference~\cite{cms-jme-pu-run2}.
@@ -241,7 +241,7 @@ calculated and stored.
 
 \subsubsection{
   N-Subjetiness and Deep Taggers
-}
+}\label{ch_reco:subjetiness}
 
 The origin of fatjets are usually when heavy energetic particle
 such as \textit{W} or \textit{Z} bosons decays to a pair of quarks
@@ -313,7 +313,7 @@ and are worth the study for future analysis.
 
 \subsubsection{
   Softdrop Mass
-}
+}\label{ch_reco:softdrop}
 
 Fatjets can also have contamination coming from wide angle
 soft \gls{ISR} and multiple hadron scattering,
